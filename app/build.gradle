@@ -4,6 +4,8 @@ android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
 
+
+
     defaultConfig {
         applicationId "com.dtu.smmac.galgespil2"
         minSdkVersion 21
