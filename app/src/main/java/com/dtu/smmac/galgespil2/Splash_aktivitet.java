@@ -5,9 +5,7 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.SystemClock;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,7 +18,7 @@ public class Splash_aktivitet extends Activity {
     private TextView lille;
     private Intent i;
     private Thread timer;
-    private Runnable r;
+    private Runnable r, sp2, sp3, sp4, sp5, sp6, sp7, sp8, sp9, sp10, sp11, sp12, sp13;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +29,9 @@ public class Splash_aktivitet extends Activity {
 
         this.lille = (TextView) findViewById(R.id.lilleSplash);
         this.lille.setText("Made by: SMMAC");
+
+        this.img = (ImageView) findViewById(R.id.img);
+        this.img.setImageResource(R.mipmap.sp1);
 
         // *** Sætter Fragmenter ***
         this.f1 = new GalgeSpil();
@@ -82,12 +83,131 @@ public class Splash_aktivitet extends Activity {
             }
         };
 
+        this.sp2 = new Runnable() {
+            @Override
+            public void run() {
+                img.setImageResource(R.mipmap.sp2);
+            }
+        };
+
+        this.sp3 = new Runnable() {
+            @Override
+            public void run() {
+                img.setImageResource(R.mipmap.sp3);
+            }
+        };
+
+        this.sp4 = new Runnable() {
+            @Override
+            public void run() {
+                img.setImageResource(R.mipmap.sp4);
+            }
+        };
+
+        this.sp5 = new Runnable() {
+            @Override
+            public void run() {
+                img.setImageResource(R.mipmap.sp5);
+            }
+        };
+
+        this.sp6 = new Runnable() {
+            @Override
+            public void run() {
+                img.setImageResource(R.mipmap.sp6);
+            }
+        };
+
+        this.sp7 = new Runnable() {
+            @Override
+            public void run() {
+                img.setImageResource(R.mipmap.sp7);
+            }
+        };
+
+        this.sp8 = new Runnable() {
+            @Override
+            public void run() {
+                img.setImageResource(R.mipmap.sp8);
+            }
+        };
+
+        this.sp9 = new Runnable() {
+            @Override
+            public void run() {
+                img.setImageResource(R.mipmap.sp9);
+            }
+        };
+
+        this.sp10 = new Runnable() {
+            @Override
+            public void run() {
+                img.setImageResource(R.mipmap.sp10);
+            }
+        };
+
+        this.sp11 = new Runnable() {
+            @Override
+            public void run() {
+                img.setImageResource(R.mipmap.sp11);
+            }
+        };
+
+        this.sp12 = new Runnable() {
+            @Override
+            public void run() {
+                img.setImageResource(R.mipmap.sp12);
+            }
+        };
+
+        this.sp13 = new Runnable() {
+            @Override
+            public void run() {
+                img.setImageResource(R.mipmap.sp13);
+            }
+        };
 
     }
 
     public void setTimer()
     {
-        SystemClock.sleep(1000);
+        SystemClock.sleep(200);
+
+        runOnUiThread(this.sp2);
+        SystemClock.sleep(200);
+
+        runOnUiThread(this.sp3);
+        SystemClock.sleep(200);
+
+        runOnUiThread(this.sp4);
+        SystemClock.sleep(200);
+
+        runOnUiThread(this.sp5);
+        SystemClock.sleep(200);
+
+        runOnUiThread(this.sp6);
+        SystemClock.sleep(200);
+
+        runOnUiThread(this.sp7);
+        SystemClock.sleep(200);
+
+        runOnUiThread(this.sp8);
+        SystemClock.sleep(200);
+
+        runOnUiThread(this.sp9);
+        SystemClock.sleep(200);
+
+        runOnUiThread(this.sp10);
+        SystemClock.sleep(200);
+
+        runOnUiThread(this.sp11);
+        SystemClock.sleep(200);
+
+        runOnUiThread(this.sp12);
+        SystemClock.sleep(200);
+
+        runOnUiThread(this.sp13);
+        SystemClock.sleep(300);
 
         startActivity(this.i);
 
