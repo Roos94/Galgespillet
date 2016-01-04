@@ -16,6 +16,8 @@ import android.widget.TextView;
 /**
  * A placeholder fragment containing a simple view.
  *
+ *
+ *
  */
 public class GalgeSpil extends Fragment implements View.OnClickListener {
 
