@@ -1,5 +1,5 @@
 package com.dtu.smmac.galgespil2;
-//  hej
+//  hej2
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
