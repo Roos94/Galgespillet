@@ -18,14 +18,13 @@ public class Main extends FragmentActivity implements View.OnClickListener {
         setContentView(R.layout.activity_main);
 
         // *** Opretter nyt Spil-objekt ***
-        Splash_aktivitet.game = new Galgelogik();
+        getFragmentManager().beginTransaction().replace(R.id.fl, Splash_aktivitet.f1).commit();
         Splash_aktivitet.game.nulstil();
 
         // *** Sætter Knapper ***
         b1 = (Button) findViewById(R.id.b1);
         b2 = (Button) findViewById(R.id.b2);
         b3 = (Button) findViewById(R.id.b3);
-
 
         b1.setOnClickListener(this);
         b2.setOnClickListener(this);
