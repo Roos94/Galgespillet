@@ -13,7 +13,7 @@
         android:layout_weight="0.67"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="0dp"
-        android:layout_above="@+id/b2">
+        android:layout_above="@+id/b1">
 
     </FrameLayout>
 
