@@ -66,6 +66,7 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
         // *** Sætter EditText ***
         et1 = (EditText) rod.findViewById(R.id.editTextGuess);
         et1.setText("");
+        et1.setHint("Indtast Bogstav");
 
         // *** Highscore ***
         countDownTimer = new HighscoreTimer(startTime, intervalTime);
@@ -131,8 +132,18 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
                                 System.out.println(finalHighscore);
                                 tv2.setText("Tillykke! Du har vundet!");
                                 iv1.setImageResource(R.mipmap.vundet);
-                                b1.setText("NYT SPIL");
-                                et1.setVisibility(View.INVISIBLE);
+                                if(this.finalHighscore > 0) {
+                                    tv3.setText("Highscore: " + this.finalHighscore);
+                                    b1.setText("GEM");
+                                    et1.setVisibility(View.VISIBLE);
+                                    et1.setHint("Indtast Navn");
+                                }
+                                else
+                                {
+                                    b1.setText("NYT SPIL");
+                                    et1.setVisibility(View.INVISIBLE);
+                                }
+
                             }
                         }
                         tv1.setText(Splash_aktivitet.game.getSynligtOrd());
@@ -155,7 +166,7 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
                 hideSoftKeyboard(getActivity());
             }
         }
-        else
+        else if (b1.getText().equals("NYT SPIL"))
         {
             // *** Start et nyt spil funktion ***
             Splash_aktivitet.game.nulstil();
@@ -166,6 +177,28 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
             b1.setText("GÆT");
             tv3.setText("Forkerte gæt tilbage: " + (6 - Splash_aktivitet.game.getAntalForkerteBogstaver()));
             et1.setVisibility(View.VISIBLE);
+        }
+        else if (b1.getText().equals("GEM"))
+        {
+            String scoreName = et1.getText().toString();
+
+            if (scoreName.equals(""))
+            {
+                tv2.setText("Skriv ét navn!");
+            }
+            else
+            {
+                tv2.setText("Tillykke! Du har vundet!");
+                b1.setText("NYT SPIL");
+                et1.setVisibility(View.INVISIBLE);
+                et1.setHint("Indtast Bogstav");
+                et1.setText("");
+                tv3.setText(scoreName + ": " + this.finalHighscore);
+
+                // Gem high score
+
+            }
+
         }
 
     }

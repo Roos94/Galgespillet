@@ -21,7 +21,7 @@ public class NoInternet extends Activity {
 
         this.noInternet = (TextView) findViewById(R.id.noInternet);
 
-        this.noInternet.setText("Du har ikke forbindelse til internette og vil derfor ikke få det fulde ud af denne applikation." + "\n" +
+        this.noInternet.setText("Du har ikke forbindelse til internettet og vil derfor ikke få det fulde ud af denne applikation." + "\n" +
                 "Vil du fortsætte med at bruge denne applikation med en mindre ordliste?");
 
         this.i = new Intent(this, Main.class);
