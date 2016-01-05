@@ -9,14 +9,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.dtu.smmac.galgespil2.NoInternet">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Accepter"
-        android:id="@+id/acceptB"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,13 +16,5 @@
         android:id="@+id/noInternet"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="luk app"
-        android:id="@+id/close"
-        android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/noInternet" />
 
 </RelativeLayout>

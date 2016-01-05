@@ -23,7 +23,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Main" />
-        <activity android:name=".NoInternet"></activity>
+        <activity android:name=".NoInternet"
+            android:theme="@style/SK"></activity>
     </application>
 
 </manifest>

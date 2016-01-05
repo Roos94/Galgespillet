@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" tools:context="com.dtu.smmac.gem.NyReg">
+
+    <item
+        android:id="@+id/done"
+        android:title="Accepter"
+        android:onClick="done"
+        android:showAsAction="always"
+        />
+
+</menu>
