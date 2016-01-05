@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+// Hej
+
 public class Main extends FragmentActivity implements View.OnClickListener {
 
     private Button b1, b2, b3;
