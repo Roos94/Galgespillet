@@ -31,7 +31,7 @@ public class Splash_aktivitet extends Activity {
         this.lille.setText("Made by: SMMAC");
 
         this.img = (ImageView) findViewById(R.id.img);
-        this.img.setImageResource(R.mipmap.sp1);
+        this.img.setImageResource(R.mipmap.p1);
 
         // *** Sætter Fragmenter ***
         this.f1 = new GalgeSpil();
