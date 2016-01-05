@@ -86,84 +86,84 @@ public class Splash_aktivitet extends Activity {
         this.sp2 = new Runnable() {
             @Override
             public void run() {
-                img.setImageResource(R.mipmap.sp2);
+                img.setImageResource(R.mipmap.p2);
             }
         };
 
         this.sp3 = new Runnable() {
             @Override
             public void run() {
-                img.setImageResource(R.mipmap.sp3);
+                img.setImageResource(R.mipmap.p3);
             }
         };
 
         this.sp4 = new Runnable() {
             @Override
             public void run() {
-                img.setImageResource(R.mipmap.sp4);
+                img.setImageResource(R.mipmap.p4);
             }
         };
 
         this.sp5 = new Runnable() {
             @Override
             public void run() {
-                img.setImageResource(R.mipmap.sp5);
+                img.setImageResource(R.mipmap.p5);
             }
         };
 
         this.sp6 = new Runnable() {
             @Override
             public void run() {
-                img.setImageResource(R.mipmap.sp6);
+                img.setImageResource(R.mipmap.p6);
             }
         };
 
         this.sp7 = new Runnable() {
             @Override
             public void run() {
-                img.setImageResource(R.mipmap.sp7);
+                img.setImageResource(R.mipmap.p7);
             }
         };
 
         this.sp8 = new Runnable() {
             @Override
             public void run() {
-                img.setImageResource(R.mipmap.sp8);
+                img.setImageResource(R.mipmap.p8);
             }
         };
 
         this.sp9 = new Runnable() {
             @Override
             public void run() {
-                img.setImageResource(R.mipmap.sp9);
+                img.setImageResource(R.mipmap.p9);
             }
         };
 
         this.sp10 = new Runnable() {
             @Override
             public void run() {
-                img.setImageResource(R.mipmap.sp10);
+                img.setImageResource(R.mipmap.p10);
             }
         };
 
         this.sp11 = new Runnable() {
             @Override
             public void run() {
-                img.setImageResource(R.mipmap.sp11);
+                img.setImageResource(R.mipmap.p11);
             }
         };
 
         this.sp12 = new Runnable() {
             @Override
             public void run() {
-                img.setImageResource(R.mipmap.sp12);
+                img.setImageResource(R.mipmap.p12);
             }
         };
 
         this.sp13 = new Runnable() {
             @Override
             public void run() {
-                img.setImageResource(R.mipmap.sp13);
+                img.setImageResource(R.mipmap.p13);
             }
         };
 
