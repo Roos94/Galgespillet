@@ -19,7 +19,7 @@ public class Splash_aktivitet extends Activity {
     public static Galgelogik game;
     private ImageView img;
     private TextView lille;
-    private Intent i;
+    private Intent i, n;
     private Thread timer;
     private Runnable r, sp2, sp3, sp4, sp5, sp6, sp7, sp8, sp9, sp10, sp11, sp12, sp13;
 
@@ -43,6 +43,7 @@ public class Splash_aktivitet extends Activity {
 
         // *** Sætter Aktivitet ***
         this.i = new Intent(this, Main.class);
+        this.n = new Intent(this, NoInternet.class);
 
         if(isNetworkAvailable() == true) {
 
@@ -54,7 +55,7 @@ public class Splash_aktivitet extends Activity {
         }
         else
         {
-
+            startActivity(this.n);
         }
     }
 
