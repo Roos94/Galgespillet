@@ -147,7 +147,7 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
                 }
 
                 et1.setText("");
-                tv4.setText("Brugte bogstaver: " + Splash_aktivitet.game.getBrugteBogstaver());
+                tv4.setText("Brugte bogstaver: " + "\n" + Splash_aktivitet.game.getBrugteBogstaver());
             }
             else
             {
