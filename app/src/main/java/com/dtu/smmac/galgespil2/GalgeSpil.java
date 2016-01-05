@@ -220,7 +220,7 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
         @Override
         public void onFinish()
         {
-            highscore = 0;
+            finalHighscore = 0;
         }
 
         @Override
