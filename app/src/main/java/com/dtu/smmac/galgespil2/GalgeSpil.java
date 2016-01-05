@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.os.CountDownTimer;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -25,6 +26,15 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
     private Button b1;
     private TextView tv1, tv2, tv3, tv4;
     private EditText et1;
+
+    // *** Highscore ***
+
+    private HighscoreTimer countDownTimer;
+    private final long startTime = 100000;
+    private final long intervalTime = 1000;
+    private long highscore;
+    private long finalHighscore;
+
 
     public GalgeSpil() {
     }
@@ -57,6 +67,9 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
         et1 = (EditText) rod.findViewById(R.id.editTextGuess);
         et1.setText("");
 
+        // *** Highscore ***
+        countDownTimer = new HighscoreTimer(startTime, intervalTime);
+
         return rod;
     }
 
@@ -64,7 +77,11 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         // *** Start spil ***
         if (b1.getText().equals("GÆT"))
-        {        // *** Giver fejlbesked ved intet indtastet ***
+        {
+            countDownTimer.cancel();
+            countDownTimer.start();
+
+         // *** Giver fejlbesked ved intet indtastet ***
             if (!et1.getText().toString().matches("")) {
                 // *** Opretter char variabel ***
                 char c = et1.getText().toString().charAt(0);
@@ -92,8 +109,11 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
                             tv2.setText("Desværre! Forkert bogstav!");
                             tv3.setText("Forkerte gæt tilbage: " + (6 - Splash_aktivitet.game.getAntalForkerteBogstaver()));
                             hideSoftKeyboard(getActivity());
+
                             // *** Når spillet er tabt ***
                             if (Splash_aktivitet.game.erSpilletTabt()) {
+                                finalHighscore = 0;
+                                System.out.println(finalHighscore);
                                 tv2.setText("Desværre! Du har tabt!");
                                 iv1.setImageResource(R.mipmap.tabt);
                                 tv3.setText("Ordet var: " + Splash_aktivitet.game.getOrdet());
@@ -104,8 +124,11 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
                         } else if (Splash_aktivitet.game.erSidsteBogstavKorrekt() == true) {
                             tv2.setText("Flot! Godt gættet!");
                             hideSoftKeyboard(getActivity());
+
                             // *** Spillet er vundet ***
                             if (Splash_aktivitet.game.erSpilletVundet()) {
+                                finalHighscore = highscore;
+                                System.out.println(finalHighscore);
                                 tv2.setText("Tillykke! Du har vundet!");
                                 iv1.setImageResource(R.mipmap.vundet);
                                 b1.setText("NYT SPIL");
@@ -150,5 +173,28 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
     public void hideSoftKeyboard(Activity activity) {
         InputMethodManager inputMethodManager = (InputMethodManager)  activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
+
+    }
+
+    public class HighscoreTimer extends CountDownTimer
+    {
+
+        public HighscoreTimer( long startTime, long intervalTime )
+        {
+            super( startTime, intervalTime );
+        }
+
+        @Override
+        public void onFinish()
+        {
+            highscore = 0;
+        }
+
+        @Override
+        public void onTick(long millisUntilFinished)
+        {
+            highscore = millisUntilFinished - ( Splash_aktivitet.game.getAntalForkerteBogstaver() * 10000 );
+        }
+
     }
 }
