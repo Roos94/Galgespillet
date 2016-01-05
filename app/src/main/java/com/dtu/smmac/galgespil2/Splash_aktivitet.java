@@ -2,7 +2,10 @@ package com.dtu.smmac.galgespil2;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.SystemClock;
 import android.os.Bundle;
@@ -41,11 +44,18 @@ public class Splash_aktivitet extends Activity {
         // *** Sætter Aktivitet ***
         this.i = new Intent(this, Main.class);
 
-        setRunable();
+        if(isNetworkAvailable() == true) {
 
-        this.timer = new Thread(this.r);
+            setRunable();
 
-        getWords();
+            this.timer = new Thread(this.r);
+
+            getWords();
+        }
+        else
+        {
+
+        }
     }
 
 
@@ -212,6 +222,13 @@ public class Splash_aktivitet extends Activity {
         startActivity(this.i);
 
         finish();
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 }
 
