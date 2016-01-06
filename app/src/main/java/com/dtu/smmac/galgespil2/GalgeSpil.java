@@ -2,7 +2,7 @@ package com.dtu.smmac.galgespil2;
 
 
 import android.app.Activity;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,9 +40,6 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
     private long combinedHighscore = 0;
 
 
-
-    public GalgeSpil() {
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
