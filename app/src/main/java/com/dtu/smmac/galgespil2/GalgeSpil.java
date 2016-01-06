@@ -143,7 +143,8 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
                                     b1.setText("NYT SPIL");
                                     et1.setVisibility(View.INVISIBLE);
                                     iv1.setImageResource(R.mipmap.tabt);
-                                    tv5.setText("");
+                                    countDownTimer.cancel();
+                                    tv5.setText("Antal gættede ord: " + playerLevel);
                                 }
                             }
                             // *** Korrekt gættet bogstav ***
