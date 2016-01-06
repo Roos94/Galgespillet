@@ -34,6 +34,7 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
     private final long intervalTime = 1000;
     private long highscore;
     private long finalHighscore;
+    private boolean timerStartet = false;
 
 
     public GalgeSpil() {
@@ -79,8 +80,11 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
         // *** Start spil ***
         if (b1.getText().equals("GÆT"))
         {
-            countDownTimer.cancel();
-            countDownTimer.start();
+            if (timerStartet == false)
+            {
+                countDownTimer.start();
+                timerStartet = true;
+            }
 
          // *** Giver fejlbesked ved intet indtastet ***
             if (!et1.getText().toString().matches("")) {
@@ -170,6 +174,8 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
         {
             // *** Start et nyt spil funktion ***
             Splash_aktivitet.game.nulstil();
+            countDownTimer.cancel();
+            timerStartet = false;
             iv1.setImageResource(R.mipmap.galge);
             tv1.setText(Splash_aktivitet.game.getSynligtOrd());
             tv2.setText("Nyt spil!");
