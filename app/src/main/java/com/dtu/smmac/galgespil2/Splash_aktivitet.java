@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 public class Splash_aktivitet extends Activity {
 
-    public static Fragment f1, f2, f3;
+    public static Fragment f1, f2, f3, f4;
     public static Galgelogik game;
     private ImageView img;
     private TextView lille;
@@ -40,6 +40,7 @@ public class Splash_aktivitet extends Activity {
         this.f1 = new GalgeSpil();
         this.f2 = new Liste();
         this.f3 = new Help();
+        this.f4 = new Highscore();
 
         // *** Sætter Aktivitet ***
         this.i = new Intent(this, Main.class);

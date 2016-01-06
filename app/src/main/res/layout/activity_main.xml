@@ -6,24 +6,12 @@
     android:weightSum="1"
     android:background="#ffffff">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal"
-        android:id="@+id/fl"
-        android:layout_weight="0.67"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_above="@+id/b1">
-
-    </FrameLayout>
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Spil"
         android:id="@+id/b1"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
 
     <Button
@@ -31,16 +19,34 @@
         android:layout_height="wrap_content"
         android:text="Hjælp"
         android:id="@+id/b3"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DR ordliste"
+        android:text="Ordliste"
         android:id="@+id/b2"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/b1" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/fl"
+        android:layout_weight="0.67"
+        android:layout_marginLeft="0dp"
+        android:layout_below="@+id/b2"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Highscore"
+        android:id="@+id/b4"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/b3" />
 
 </RelativeLayout>
 

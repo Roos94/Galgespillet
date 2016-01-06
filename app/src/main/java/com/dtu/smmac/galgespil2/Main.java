@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class Main extends FragmentActivity implements View.OnClickListener {
 
-    private Button b1, b2, b3;
+    private Button b1, b2, b3, b4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +27,12 @@ public class Main extends FragmentActivity implements View.OnClickListener {
         b1 = (Button) findViewById(R.id.b1);
         b2 = (Button) findViewById(R.id.b2);
         b3 = (Button) findViewById(R.id.b3);
+        b4 = (Button) findViewById(R.id.b4);
 
         b1.setOnClickListener(this);
         b2.setOnClickListener(this);
         b3.setOnClickListener(this);
+        b4.setOnClickListener(this);
     }
 
     @Override
@@ -47,6 +49,10 @@ public class Main extends FragmentActivity implements View.OnClickListener {
 
             case R.id.b3:
                 getFragmentManager().beginTransaction().replace(R.id.fl, Splash_aktivitet.f3).commit();
+                break;
+
+            case R.id.b4:
+                getFragmentManager().beginTransaction().replace(R.id.fl, Splash_aktivitet.f4).commit();
                 break;
         }
     }
