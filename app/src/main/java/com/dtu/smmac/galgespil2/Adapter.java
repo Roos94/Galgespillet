@@ -8,15 +8,17 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
 /**
  * Created by SteenBartholdy on 06-01-2016.
  */
 public class Adapter extends ArrayAdapter<Person> {
 
-    private Person personer;
+    private List<Person> personer;
     private Context context;
 
-    public Adapter (Person p, Context c)
+    public Adapter (Context c, List<Person> p)
     {
         super(c, R.layout.row_highscore);
         this.personer = p;
@@ -25,7 +27,7 @@ public class Adapter extends ArrayAdapter<Person> {
 
     public int getCount ()
     {
-        return 0;
+        return this.personer.size();
     }
 
 
@@ -55,7 +57,24 @@ public class Adapter extends ArrayAdapter<Person> {
             holder = (Holder) row.getTag();
         }
 
+        Person p = this.personer.get(position);
 
+        //holder.imgView.setImageResource(p.getLevel());
+        holder.scoreView.setText("" + p.getScore());
+        holder.nameView.setText(p.getName());
+
+        if(p.getLevel() == 1)
+        {
+            holder.imgView.setImageResource(p.getLevel());
+        }
+        else if(p.getLevel() == 2)
+        {
+
+        }
+        else if(p.getLevel() < 2)
+        {
+
+        }
 
 
 

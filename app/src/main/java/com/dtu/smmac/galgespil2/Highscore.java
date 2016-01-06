@@ -26,6 +26,8 @@ public class Highscore extends Fragment {
     private TextView tv;
     private List<Person> personer;
 
+    public static Adapter adap;
+
     public Highscore() {
 
     }
@@ -44,8 +46,30 @@ public class Highscore extends Fragment {
 
         this.personer.add(0, new Person("John", 1000, 1));
 
+        this.personer.add(1, new Person("JohnJohn", 2135, 1));
+
+        this.personer.add(2, new Person("hul", 75678, 1));
+
+        this.personer.add(3, new Person("Josdfdsfn", 79878, 1));
+
+        this.personer.add(4, new Person("hejj", 6546547, 1));
+
+        this.personer.add(5, new Person("ælkæsdlf", 106540, 1));
+
+        this.personer.add(6, new Person("kæko", 789, 1));
+
+        this.personer.add(7, new Person("gæko", 10056450, 1));
+
+        //Collections.sort(personer ,Collections.reverseOrder());
+
+        setList();
 
         return rod;
     }
 
+
+    public void setList() {
+        this.adap = new Adapter(getActivity(), personer);
+        this.lv.setAdapter(adap);
+    }
 }
