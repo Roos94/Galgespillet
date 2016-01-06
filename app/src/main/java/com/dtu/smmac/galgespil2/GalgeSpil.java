@@ -46,6 +46,9 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         View rod = inflater.inflate(R.layout.fragment_galgespil, container, false);
 
+        // *** Genstarter ***
+        Splash_aktivitet.game.nulstil();
+
         // *** Sætter ImageView og Startbillede ***
         iv1 = (ImageView) rod.findViewById(R.id.imageView);
         iv1.setImageResource(R.mipmap.galge);
@@ -74,6 +77,9 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
 
         // *** Highscore-timer ***
         countDownTimer = new HighscoreTimer(startTime, intervalTime);
+
+
+
 
         return rod;
     }
