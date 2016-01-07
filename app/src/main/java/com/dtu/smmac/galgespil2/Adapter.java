@@ -45,10 +45,12 @@ public class Adapter extends ArrayAdapter<Person> {
             ImageView img = (ImageView) row.findViewById(R.id.image);
             TextView score = (TextView) row.findViewById(R.id.score);
             TextView name = (TextView) row.findViewById(R.id.name);
+            TextView level = (TextView) row.findViewById(R.id.level);
 
             holder.scoreView = score;
             holder.nameView = name;
             holder.imgView = img;
+            holder.levelView = level;
 
             row.setTag(holder);
         }
@@ -62,20 +64,20 @@ public class Adapter extends ArrayAdapter<Person> {
         //holder.imgView.setImageResource(p.getLevel());
         holder.scoreView.setText("" + p.getScore());
         holder.nameView.setText(p.getName());
+        holder.levelView.setText(" - Antal gættede ord: " + p.getLevel());
 
         if(p.getLevel() == 1)
         {
-            holder.imgView.setImageResource(p.getLevel());
+            holder.imgView.setImageResource(R.mipmap.bronze);
         }
         else if(p.getLevel() == 2)
         {
-
+            holder.imgView.setImageResource(R.mipmap.solv);
         }
-        else if(p.getLevel() < 2)
+        else if(p.getLevel() > 2)
         {
-
+            holder.imgView.setImageResource(R.mipmap.guld);
         }
-
 
 
         return row;
@@ -86,6 +88,7 @@ public class Adapter extends ArrayAdapter<Person> {
         public TextView scoreView;
         public TextView nameView;
         public ImageView imgView;
+        public TextView levelView;
     }
 
 

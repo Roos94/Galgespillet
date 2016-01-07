@@ -14,6 +14,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -52,15 +53,14 @@ public class Highscore extends Fragment {
 
         this.personer.add(3, new Person("Josdfdsfn", 79878, 1));
 
-        this.personer.add(4, new Person("hejj", 6546547, 1));
+        this.personer.add(4, new Person("hejj", 6546547, 2));
 
-        this.personer.add(5, new Person("ælkæsdlf", 106540, 1));
+        this.personer.add(5, new Person("ælkæsdlf", 106540, 2));
 
         this.personer.add(6, new Person("kæko", 789, 1));
 
-        this.personer.add(7, new Person("gæko", 10056450, 1));
+        this.personer.add(7, new Person("gæko", 10056450, 3));
 
-        //Collections.sort(personer ,Collections.reverseOrder());
 
         setList();
 
@@ -72,4 +72,6 @@ public class Highscore extends Fragment {
         this.adap = new Adapter(getActivity(), personer);
         this.lv.setAdapter(adap);
     }
+
+
 }
