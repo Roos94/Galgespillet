@@ -14,13 +14,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.os.CountDownTimer;
 
-/**
- * A placeholder fragment containing a simple view.
- *
- *
- *
- */
+
 public class GalgeSpil extends Fragment implements View.OnClickListener {
+
+    // *** GUI ***
 
     private ImageView iv1;
     private Button b1;
@@ -35,7 +32,6 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
     static long tempHighscore = 160000;
     private long highscore = 0;
     private boolean timerStartet = false;
-    private boolean timerRanOut = false;
     private int playerLevel = 0;
     private long combinedHighscore = 0;
 
@@ -132,30 +128,9 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
 
                             // *** Når spillet er tabt ***
                             if (Splash_aktivitet.game.erSpilletTabt()) {
-                                if (combinedHighscore > 0)
-                                {
-                                    tv2.setText("Desværre! Du har tabt!");
-                                    tv3.setText("Din score blev: " + this.combinedHighscore);
-                                    b1.setText("GEM");
-                                    et1.setVisibility(View.VISIBLE);
-                                    et1.setHint("Indtast Navn");
-                                    tv4.setText("");
-                                    iv1.setImageResource(R.mipmap.tabt);
-                                    countDownTimer.cancel();
-                                    tv5.setText("Antal gættede ord: " + playerLevel);
-                                }
-                                else
-                                {
-                                    tv2.setText("Desværre! Du har tabt!");
-                                    iv1.setImageResource(R.mipmap.tabt);
-                                    tv3.setText("Ordet var: " + Splash_aktivitet.game.getOrdet());
-                                    b1.setText("NYT SPIL");
-                                    et1.setVisibility(View.INVISIBLE);
-                                    iv1.setImageResource(R.mipmap.tabt);
-                                    countDownTimer.cancel();
-                                    tv5.setText("Antal gættede ord: " + playerLevel);
-                                }
+                                lostGame();
                             }
+
                             // *** Korrekt gættet bogstav ***
                         } else if (Splash_aktivitet.game.erSidsteBogstavKorrekt() == true) {
                             tv2.setText("Flot! Godt gættet!");
@@ -205,7 +180,6 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
             timerStartet = false;
             tempHighscore = 160000;
             highscore = 0;
-            timerRanOut = false;
             playerLevel = 0;
             combinedHighscore = 0;
             iv1.setImageResource(R.mipmap.galge);
@@ -248,6 +222,35 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
 
         }
 
+
+
+    }
+
+    public void lostGame()
+    {
+        if (combinedHighscore > 0)
+        {
+            tv2.setText("Desværre! Du har tabt!");
+            tv3.setText("Din score blev: " + this.combinedHighscore);
+            b1.setText("GEM");
+            et1.setVisibility(View.VISIBLE);
+            et1.setHint("Indtast Navn");
+            tv4.setText("");
+            iv1.setImageResource(R.mipmap.tabt);
+            countDownTimer.cancel();
+            tv5.setText("Antal gættede ord: " + playerLevel);
+        }
+        else
+        {
+            tv2.setText("Desværre! Du har tabt!");
+            iv1.setImageResource(R.mipmap.tabt);
+            tv3.setText("Ordet var: " + Splash_aktivitet.game.getOrdet());
+            b1.setText("NYT SPIL");
+            et1.setVisibility(View.INVISIBLE);
+            iv1.setImageResource(R.mipmap.tabt);
+            countDownTimer.cancel();
+            tv5.setText("Antal gættede ord: " + playerLevel);
+        }
     }
 
     public void newGame()
@@ -257,7 +260,6 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
         timerStartet = false;
         tempHighscore = 160000;
         highscore = 0;
-        timerRanOut = false;
         iv1.setImageResource(R.mipmap.galge);
         tv1.setText(Splash_aktivitet.game.getSynligtOrd());
         tv2.setText("Fortsæt spil!");
@@ -286,7 +288,8 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
         public void onFinish()
         {
             tempHighscore = 0;
-            timerRanOut = true;
+            lostGame();
+            tv5.setText("Tid: " + 0 + "   Point: " + 0);
         }
 
         @Override
