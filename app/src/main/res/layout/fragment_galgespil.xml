@@ -5,47 +5,59 @@
     android:background="#ffffff">
 
     <ImageView
-        android:layout_width="170dp"
-        android:layout_height="205dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/imageView"
         android:background="#ffffff"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignStart="@+id/textViewWord"
+        android:layout_toStartOf="@+id/buttonGuess"
+        android:layout_above="@+id/textViewWord"
+        android:layout_alignParentEnd="true" />
 
     <TextView
-        android:layout_width="250dp"
+        android:layout_width="fill_parent"
         android:layout_height="40dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/textViewWord"
         android:gravity="center"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:background="#ffffff"
+        android:layout_above="@+id/textViewInfo"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp" />
 
     <TextView
-        android:layout_width="250dp"
+        android:layout_width="fill_parent"
         android:layout_height="60dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/textViewInfo"
         android:gravity="center"
-        android:layout_below="@+id/textViewWord"
-        android:layout_centerHorizontal="true" />
+        android:background="#ffffff"
+        android:layout_above="@+id/textViewCount"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp" />
 
     <TextView
-        android:layout_width="250dp"
+        android:layout_width="fill_parent"
         android:layout_height="30dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/textViewCount"
         android:gravity="center"
-        android:layout_below="@+id/textViewInfo"
-        android:layout_centerHorizontal="true" />
+        android:background="#ffffff"
+        android:layout_above="@+id/textViewUsed"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/textViewUsed"
-        android:layout_below="@+id/textViewCount"
-        android:layout_centerHorizontal="true" />
+        android:background="#ffffff"
+        android:layout_above="@+id/textViewTime"
+        android:layout_alignParentStart="false"
+        android:gravity="center"
+        android:layout_marginTop="10dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -65,11 +77,16 @@
         android:layout_alignParentEnd="true" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/textViewTime"
-        android:layout_below="@+id/textViewUsed"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:background="#ffffff"
+        android:layout_above="@+id/buttonGuess"
+        android:layout_alignParentStart="false"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold" />
 
 </RelativeLayout>
