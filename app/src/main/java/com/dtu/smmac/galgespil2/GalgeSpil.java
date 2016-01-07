@@ -18,14 +18,12 @@ import android.os.CountDownTimer;
 public class GalgeSpil extends Fragment implements View.OnClickListener {
 
     // *** GUI ***
-
     private ImageView iv1;
     private Button b1;
     private TextView tv1, tv2, tv3, tv4, tv5;
     private EditText et1;
 
     // *** Highscore ***
-
     private HighscoreTimer countDownTimer;
     private final long startTime = 100000;
     private final long intervalTime = 1000;
@@ -36,10 +34,9 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
     private long combinedHighscore = 0;
 
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
         View rod = inflater.inflate(R.layout.fragment_galgespil, container, false);
 
         // *** Genstarter ***
@@ -61,10 +58,11 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
         tv4 = (TextView) rod.findViewById(R.id.textViewUsed);
         tv5 = (TextView) rod.findViewById(R.id.textViewTime);
 
-
+        // *** Start-text in textViews ***
         tv1.setText(Splash_aktivitet.game.getSynligtOrd());
-        tv2.setText("Velkommen til Galge-Spillet");
+        tv2.setText("Velkommen til Galgespillet");
         tv3.setText("Forkerte gæt tilbage: 6");
+        tv4.setText("Brugte bogstaver: ");
 
         // *** Sætter EditText ***
         et1 = (EditText) rod.findViewById(R.id.editTextGuess);
@@ -87,7 +85,8 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View v)
+    {
         // *** Start spil ***
         if (b1.getText().equals("GÆT"))
         {
@@ -107,7 +106,8 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
                     if (!Splash_aktivitet.game.getBrugteBogstaver().contains(et1.getText().toString())) {
                         Splash_aktivitet.game.gætBogstav(et1.getText().toString());
                         // *** Ved forkert bogstav ***
-                        if (Splash_aktivitet.game.erSidsteBogstavKorrekt() == false) {
+                        if (Splash_aktivitet.game.erSidsteBogstavKorrekt() == false)
+                        {
                             if (Splash_aktivitet.game.getAntalForkerteBogstaver() == 1) {
                                 iv1.setImageResource(R.mipmap.forkert1);
                             } else if (Splash_aktivitet.game.getAntalForkerteBogstaver() == 2) {
@@ -127,29 +127,21 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
                             hideSoftKeyboard(getActivity());
 
                             // *** Når spillet er tabt ***
-                            if (Splash_aktivitet.game.erSpilletTabt()) {
-                                lostGame();
+                            if (Splash_aktivitet.game.erSpilletTabt())
+                            {
+                                gameOver();
                             }
 
-                            // *** Korrekt gættet bogstav ***
-                        } else if (Splash_aktivitet.game.erSidsteBogstavKorrekt() == true) {
+
+                        }   // *** Korrekt gættet bogstav ***
+                        else if (Splash_aktivitet.game.erSidsteBogstavKorrekt() == true) {
                             tv2.setText("Flot! Godt gættet!");
                             hideSoftKeyboard(getActivity());
 
                             // *** Ordet er gættet ***
                             if (Splash_aktivitet.game.erSpilletVundet())
                             {
-                                highscore = tempHighscore;
-                                tv2.setText("Tillykke! Du har gættet ordet!!");
-                                iv1.setImageResource(R.mipmap.vundet);
-                                combinedHighscore = combinedHighscore + highscore;
-                                playerLevel++;
-                                tv4.setText("");
-                                tv3.setText("Dine point: " + combinedHighscore);
-                                b1.setText("FORTSÆT");
-                                et1.setVisibility(View.INVISIBLE);
-                                countDownTimer.cancel();
-                                tv5.setText("Antal gættede ord: " + playerLevel);
+                                gameWon();
                             }
                         }
                         tv1.setText(Splash_aktivitet.game.getSynligtOrd());
@@ -174,27 +166,11 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
         }
         else if (b1.getText().equals("NYT SPIL"))
         {
-            // *** Start et nyt spil funktion ***
-            Splash_aktivitet.game.nulstil();
-            countDownTimer.cancel();
-            timerStartet = false;
-            tempHighscore = 160000;
-            highscore = 0;
-            playerLevel = 0;
-            combinedHighscore = 0;
-            iv1.setImageResource(R.mipmap.galge);
-            tv1.setText(Splash_aktivitet.game.getSynligtOrd());
-            tv2.setText("Nyt spil!");
-            tv4.setText("");
-            b1.setText("GÆT");
-            tv3.setText("Forkerte gæt tilbage: " + (6 - Splash_aktivitet.game.getAntalForkerteBogstaver()));
-            et1.setVisibility(View.VISIBLE);
-            tv5.setText("");
+            newGame();
         }
         else if (b1.getText().equals("FORTSÆT"))
         {
-            // *** Start et nyt spil funktion ***
-            newGame();
+            nextLevel();
         }
 
         else if (b1.getText().equals("GEM"))
@@ -226,7 +202,7 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
 
     }
 
-    public void lostGame()
+    public void gameOver()
     {
         if (combinedHighscore > 0)
         {
@@ -249,11 +225,45 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
             et1.setVisibility(View.INVISIBLE);
             iv1.setImageResource(R.mipmap.tabt);
             countDownTimer.cancel();
-            tv5.setText("Antal gættede ord: " + playerLevel);
+            tv5.setText("");
         }
     }
 
+    public void gameWon()
+    {
+        highscore = tempHighscore;
+        combinedHighscore = combinedHighscore + highscore;
+        tv2.setText("Tillykke! Du har gættet ordet!!");
+        iv1.setImageResource(R.mipmap.vundet);
+        playerLevel++;
+        tv4.setText("");
+        tv3.setText("Dine point: " + combinedHighscore);
+        b1.setText("FORTSÆT");
+        et1.setVisibility(View.INVISIBLE);
+        countDownTimer.cancel();
+        tv5.setText("Antal gættede ord: " + playerLevel);
+    }
+
     public void newGame()
+    {
+        Splash_aktivitet.game.nulstil();
+        countDownTimer.cancel();
+        timerStartet = false;
+        tempHighscore = 160000;
+        highscore = 0;
+        playerLevel = 0;
+        combinedHighscore = 0;
+        iv1.setImageResource(R.mipmap.galge);
+        tv1.setText(Splash_aktivitet.game.getSynligtOrd());
+        tv2.setText("Nyt spil!");
+        tv4.setText("");
+        b1.setText("GÆT");
+        tv3.setText("Forkerte gæt tilbage: " + (6 - Splash_aktivitet.game.getAntalForkerteBogstaver()));
+        et1.setVisibility(View.VISIBLE);
+        tv5.setText("");
+    }
+
+    public void nextLevel()
     {
         Splash_aktivitet.game.nulstil();
         countDownTimer.cancel();
@@ -270,7 +280,8 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
         tv5.setText("");
     }
 
-    public void hideSoftKeyboard(Activity activity) {
+    public void hideSoftKeyboard(Activity activity)
+    {
         InputMethodManager inputMethodManager = (InputMethodManager)  activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
 
@@ -288,7 +299,7 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
         public void onFinish()
         {
             tempHighscore = 0;
-            lostGame();
+            gameOver();
             tv5.setText("Tid: " + 0 + "   Point: " + 0);
         }
 
