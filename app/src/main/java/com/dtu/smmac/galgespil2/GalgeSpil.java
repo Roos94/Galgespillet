@@ -81,6 +81,11 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
             timerStartet = false;
         }
 
+        tempHighscore = 160000;
+        highscore = 0;
+        playerLevel = 0;
+        combinedHighscore = 0;
+
         return rod;
     }
 
