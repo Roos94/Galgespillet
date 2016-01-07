@@ -293,7 +293,7 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
         public void onTick(long millisUntilFinished)
         {
             tempHighscore = (60000 + millisUntilFinished) - ( Splash_aktivitet.game.getAntalForkerteBogstaver() * 10000 );
-            tv5.setText("Tid tilbage: " + millisUntilFinished/1000);
+            tv5.setText("Tid: " + millisUntilFinished/1000 + "   Point: " + tempHighscore);
         }
 
     }
