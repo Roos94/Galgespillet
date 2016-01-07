@@ -76,10 +76,16 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
         et1.setHint("Indtast Bogstav");
 
         // *** Highscore-timer ***
-        countDownTimer = new HighscoreTimer(startTime, intervalTime);
-
-
-
+        if (countDownTimer == null)
+        {
+            countDownTimer = new HighscoreTimer(startTime, intervalTime);
+            timerStartet = false;
+        }
+        else
+        {
+            countDownTimer.cancel();
+            timerStartet = false;
+        }
 
         return rod;
     }
@@ -214,20 +220,7 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
         else if (b1.getText().equals("FORTSÆT"))
         {
             // *** Start et nyt spil funktion ***
-            Splash_aktivitet.game.nulstil();
-            countDownTimer.cancel();
-            timerStartet = false;
-            tempHighscore = 160000;
-            highscore = 0;
-            timerRanOut = false;
-            iv1.setImageResource(R.mipmap.galge);
-            tv1.setText(Splash_aktivitet.game.getSynligtOrd());
-            tv2.setText("Fortsæt spil!");
-            tv4.setText("");
-            b1.setText("GÆT");
-            tv3.setText("Forkerte gæt tilbage: " + (6 - Splash_aktivitet.game.getAntalForkerteBogstaver()));
-            et1.setVisibility(View.VISIBLE);
-            tv5.setText("");
+            newGame();
         }
 
         else if (b1.getText().equals("GEM"))
@@ -255,6 +248,24 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
 
         }
 
+    }
+
+    public void newGame()
+    {
+        Splash_aktivitet.game.nulstil();
+        countDownTimer.cancel();
+        timerStartet = false;
+        tempHighscore = 160000;
+        highscore = 0;
+        timerRanOut = false;
+        iv1.setImageResource(R.mipmap.galge);
+        tv1.setText(Splash_aktivitet.game.getSynligtOrd());
+        tv2.setText("Fortsæt spil!");
+        tv4.setText("");
+        b1.setText("GÆT");
+        tv3.setText("Forkerte gæt tilbage: " + (6 - Splash_aktivitet.game.getAntalForkerteBogstaver()));
+        et1.setVisibility(View.VISIBLE);
+        tv5.setText("");
     }
 
     public void hideSoftKeyboard(Activity activity) {
