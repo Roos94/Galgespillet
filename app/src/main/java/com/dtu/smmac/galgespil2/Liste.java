@@ -35,6 +35,7 @@ public class Liste extends Fragment implements AdapterView.OnItemClickListener {
         list = (ListView) rod.findViewById(R.id.listView);
 
         // *** Sætter ArrayList ***
+        Splash_aktivitet.game.removeWords();
         ord = Splash_aktivitet.game.getMuligeOrd();
 
         // *** Sort ArrayList A-Z ***

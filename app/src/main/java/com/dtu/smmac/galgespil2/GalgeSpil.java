@@ -41,6 +41,7 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
 
         // *** Restart ***
         Splash_aktivitet.game.nulstil();
+        Splash_aktivitet.game.removeWords();
 
         // *** ImageView and Start-screen ***
         iv1 = (ImageView) root.findViewById(R.id.imageView);

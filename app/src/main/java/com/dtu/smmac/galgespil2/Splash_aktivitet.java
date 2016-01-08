@@ -66,7 +66,7 @@ public class Splash_aktivitet extends Activity {
             @Override
             protected Object doInBackground(Object... arg0) {
                 try {
-                    game.hentOrdFraDr();
+                    game.hentOrd();
                     return "1";
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -77,6 +77,7 @@ public class Splash_aktivitet extends Activity {
             @Override
             protected void onPostExecute(Object resultat) {
                 if (resultat.equals("1")) {
+                    game.removeWords();
                     timer.start();
 
                 } else {

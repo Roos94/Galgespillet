@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Random;
 
 public class Galgelogik {
-  private ArrayList<String> muligeOrd = new ArrayList<String>();
+  private ArrayList<String> muligeOrd;
   private String ordet;
   private ArrayList<String> brugteBogstaver = new ArrayList<String>();
   private String synligtOrd;
@@ -63,6 +63,8 @@ public class Galgelogik {
 
 
   public Galgelogik() {
+    muligeOrd = new ArrayList<String>();
+
     muligeOrd.add("bil");
     muligeOrd.add("computer");
     muligeOrd.add("programmering");
@@ -114,7 +116,7 @@ public class Galgelogik {
       sidsteBogstavVarKorrekt = false;
       System.out.println("Bogstavet var IKKE korrekt: " + bogstav);
       antalForkerteBogstaver = antalForkerteBogstaver + 1;
-      if (antalForkerteBogstaver > 6 || GalgeSpil.tempHighscore == 0 || GalgeSpil.tempHighscore < 0) {
+      if (antalForkerteBogstaver > 6) {
         spilletErTabt = true;
       }
     }
@@ -144,7 +146,7 @@ public class Galgelogik {
     return sb.toString();
   }
 
-  public void hentOrdFraDr() throws Exception {
+  public void hentOrd() throws Exception {
     String data = hentUrl("http://dr.dk");
     System.out.println("data = " + data);
 
@@ -153,10 +155,29 @@ public class Galgelogik {
             replaceAll(" [a-zæøå] "," "). // fjern 1-bogstavsord
             replaceAll(" [a-zæøå][a-zæøå] "," "); // fjern 2-bogstavsord
     System.out.println("data = " + data);
+
     muligeOrd.clear();
     muligeOrd.addAll(new HashSet<String>(Arrays.asList(data.split(" "))));
 
     System.out.println("muligeOrd = " + muligeOrd);
     nulstil();
   }
+
+  public void removeWords()
+  {
+    for(int i = 0; i < muligeOrd.size(); i++)
+    {
+      //System.out.println(muligeOrd.get(i).toString());
+
+      if (muligeOrd.get(i).length() < 5 || muligeOrd.get(i).length() > 16)
+      {
+        System.out.println(muligeOrd.remove(i));
+      }
+      else if (muligeOrd.get(i).indexOf("x") > -1)
+      {
+        muligeOrd.remove(i);
+      }
+    }
+  }
+
 }
