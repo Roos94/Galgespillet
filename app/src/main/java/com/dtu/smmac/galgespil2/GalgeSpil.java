@@ -169,7 +169,7 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
             tv4.setText("");
             iv1.setImageResource(R.mipmap.tabt);
             countDownTimer.cancel();
-            tv5.setText("Antal gættede ord: " + playerLevel);
+            tv5.setText("Du nåede til level: " + playerLevel);
             tv1.setText(Splash_aktivitet.game.getOrdet());
         }
         else
@@ -183,7 +183,6 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
             iv1.setImageResource(R.mipmap.tabt);
             countDownTimer.cancel();
             tv5.setText("");
-            System.out.println(Splash_aktivitet.game.getOrdet());
         }
     }
 
@@ -199,7 +198,7 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
         b1.setText("FORTSÆT");
         et1.setVisibility(View.INVISIBLE);
         countDownTimer.cancel();
-        tv5.setText("Antal gættede ord: " + playerLevel);
+        tv5.setText("Du har klaret level: " + playerLevel);
     }
 
     public void newGame()
