@@ -25,9 +25,9 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
 
     // *** Highscore ***
     private HighscoreTimer countDownTimer;
-    private final long startTime = 100000;
+    private final long startTime = 60000;
     private final long intervalTime = 1000;
-    static long tempHighscore = 160000;
+    static long tempHighscore = 60000;
     private long highscore = 0;
     private boolean timerStartet = false;
     private int playerLevel = 0;
@@ -205,7 +205,7 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
         Splash_aktivitet.game.nulstil();
         countDownTimer.cancel();
         timerStartet = false;
-        tempHighscore = 100000;
+        tempHighscore = 60000;
         highscore = 0;
         playerLevel = 0;
         combinedHighscore = 0;
@@ -224,7 +224,7 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
         Splash_aktivitet.game.nulstil();
         countDownTimer.cancel();
         timerStartet = false;
-        tempHighscore = 100000;
+        tempHighscore = 60000;
         highscore = 0;
         iv1.setImageResource(R.mipmap.galge);
         tv1.setText(Splash_aktivitet.game.getSynligtOrd());
@@ -306,7 +306,7 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
             timerStartet = false;
         }
 
-        tempHighscore = 100000;
+        tempHighscore = 60000;
         highscore = 0;
         playerLevel = 0;
         combinedHighscore = 0;
