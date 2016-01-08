@@ -170,23 +170,26 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
             iv1.setImageResource(R.mipmap.tabt);
             countDownTimer.cancel();
             tv5.setText("Antal gættede ord: " + playerLevel);
+            tv1.setText(Splash_aktivitet.game.getOrdet());
         }
         else
         {
             tv2.setText("Desværre! Du har tabt!");
             iv1.setImageResource(R.mipmap.tabt);
-            tv3.setText("Ordet var: " + Splash_aktivitet.game.getOrdet());
+            tv3.setText("");
+            tv1.setText(Splash_aktivitet.game.getOrdet());
             b1.setText("NYT SPIL");
             et1.setVisibility(View.INVISIBLE);
             iv1.setImageResource(R.mipmap.tabt);
             countDownTimer.cancel();
             tv5.setText("");
+            System.out.println(Splash_aktivitet.game.getOrdet());
         }
     }
 
     public void gameWon()
     {
-        highscore = tempHighscore;
+        highscore = tempHighscore + ((6 - Splash_aktivitet.game.getAntalForkerteBogstaver())*10000);
         combinedHighscore = combinedHighscore + highscore;
         tv2.setText("Tillykke! Du har gættet ordet!!");
         iv1.setImageResource(R.mipmap.vundet);
@@ -204,7 +207,7 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
         Splash_aktivitet.game.nulstil();
         countDownTimer.cancel();
         timerStartet = false;
-        tempHighscore = 160000;
+        tempHighscore = 100000;
         highscore = 0;
         playerLevel = 0;
         combinedHighscore = 0;
@@ -223,7 +226,7 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
         Splash_aktivitet.game.nulstil();
         countDownTimer.cancel();
         timerStartet = false;
-        tempHighscore = 160000;
+        tempHighscore = 100000;
         highscore = 0;
         iv1.setImageResource(R.mipmap.galge);
         tv1.setText(Splash_aktivitet.game.getSynligtOrd());
@@ -342,7 +345,7 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
         @Override
         public void onTick(long millisUntilFinished)
         {
-            tempHighscore = (60000 + millisUntilFinished) - ( Splash_aktivitet.game.getAntalForkerteBogstaver() * 10000);
+            tempHighscore = millisUntilFinished;
             tv5.setText("Tid: " + millisUntilFinished / 1000 + "   Point: " + tempHighscore);
         }
 
