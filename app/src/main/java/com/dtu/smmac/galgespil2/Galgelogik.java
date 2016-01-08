@@ -169,11 +169,23 @@ public class Galgelogik {
     {
       //System.out.println(muligeOrd.get(i).toString());
 
-      if (muligeOrd.get(i).length() < 5 || muligeOrd.get(i).length() > 16)
+      if (muligeOrd.get(i).length() < 7 || muligeOrd.get(i).length() > 19)
       {
         System.out.println(muligeOrd.remove(i));
       }
       else if (muligeOrd.get(i).indexOf("x") > -1)
+      {
+        muligeOrd.remove(i);
+      }
+      else if (muligeOrd.get(i).indexOf("a") == -1 &&
+              muligeOrd.get(i).indexOf("e") == -1 &&
+              muligeOrd.get(i).indexOf("i") == -1 &&
+              muligeOrd.get(i).indexOf("o") == -1 &&
+              muligeOrd.get(i).indexOf("u") == -1 &&
+              muligeOrd.get(i).indexOf("y") == -1 &&
+              muligeOrd.get(i).indexOf("æ") == -1 &&
+              muligeOrd.get(i).indexOf("ø") == -1 &&
+              muligeOrd.get(i).indexOf("å") == -1)
       {
         muligeOrd.remove(i);
       }
