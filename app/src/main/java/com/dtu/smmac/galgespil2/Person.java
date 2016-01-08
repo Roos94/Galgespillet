@@ -9,6 +9,11 @@ public class Person {
     private long score;
     private int level;
 
+    public Person()
+    {
+
+    }
+
     public Person(String name, long score, int level)
     {
         this.name = name;
