@@ -120,7 +120,8 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
                                 gameWon();
                             }
                         }
-                        tv1.setText(Splash_aktivitet.game.getSynligtOrd());
+                        // *** Show the word if game is over ***
+                        showWord();
                     }
                     else
                     {
@@ -170,17 +171,14 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
             iv1.setImageResource(R.mipmap.tabt);
             countDownTimer.cancel();
             tv5.setText("Du nåede til level: " + playerLevel);
-            tv1.setText(Splash_aktivitet.game.getOrdet());
         }
         else
         {
             tv2.setText("Desværre! Du har tabt!");
             iv1.setImageResource(R.mipmap.tabt);
             tv3.setText("");
-            tv1.setText(Splash_aktivitet.game.getOrdet());
             b1.setText("NYT SPIL");
             et1.setVisibility(View.INVISIBLE);
-            iv1.setImageResource(R.mipmap.tabt);
             countDownTimer.cancel();
             tv5.setText("");
         }
@@ -282,6 +280,18 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
         hideSoftKeyboard(getActivity());
     }
 
+    public void showWord()
+    {
+        if (Splash_aktivitet.game.erSpilletTabt())
+        {
+            tv1.setText(Splash_aktivitet.game.getOrdet());
+        }
+        else
+        {
+            tv1.setText(Splash_aktivitet.game.getSynligtOrd());
+        }
+    }
+
     public void startUpCheck()
     {
         if (countDownTimer == null)
@@ -295,7 +305,7 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
             timerStartet = false;
         }
 
-        tempHighscore = 160000;
+        tempHighscore = 100000;
         highscore = 0;
         playerLevel = 0;
         combinedHighscore = 0;
