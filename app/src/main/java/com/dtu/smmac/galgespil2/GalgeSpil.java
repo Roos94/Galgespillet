@@ -258,6 +258,7 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
             tv5.setText("");
 
             // Gem high score
+            Splash_aktivitet.db.updateDB(new Person(scoreName, this.combinedHighscore, this.playerLevel));
 
         }
     }

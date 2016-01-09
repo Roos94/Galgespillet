@@ -26,7 +26,6 @@ public class Highscore extends Fragment {
     private ListView lv;
     private TextView tv;
     private List<Person> personer;
-    private Splash_aktivitet sp;
 
     public static Adapter adap;
 
@@ -43,8 +42,6 @@ public class Highscore extends Fragment {
         tv = (TextView) rod.findViewById(R.id.tvHighscore);
 
         tv.setText("Highscore liste:");
-
-        this.sp = new Splash_aktivitet();
 
         this.personer = new ArrayList<>();
 
