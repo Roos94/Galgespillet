@@ -53,6 +53,8 @@ public class Highscore extends Fragment {
             personer.add(Splash_aktivitet.db.getDB().get(i));
         }
 
+        Collections.reverse(personer);
+
         setList();
 
         return rod;

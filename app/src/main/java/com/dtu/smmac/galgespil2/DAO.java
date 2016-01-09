@@ -21,6 +21,7 @@ public class DAO {
     private List<Person> personer;
     private ArrayList<Person> nyPersoner;
     private Firebase myFirebaseRef;
+    private Firebase con;
     private Query queryRef;
 
     public DAO(Context c)
@@ -29,6 +30,8 @@ public class DAO {
         this.nyPersoner = new ArrayList<Person>();
         setDBContext(c);
         this.myFirebaseRef = new Firebase("https://galgehighscore.firebaseio.com/");
+        con = myFirebaseRef.child("v0").child("Personer");
+        queryRef = this.con.orderByChild("score");
     }
 
     public List<Person> getDao()
@@ -51,7 +54,7 @@ public class DAO {
 
     public List<Person> getDB()
     {
-        myFirebaseRef.child("v0").child("Personer").addValueEventListener(new ValueEventListener() {
+        queryRef.addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot snapshot) {
