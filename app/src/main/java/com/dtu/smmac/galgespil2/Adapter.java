@@ -64,7 +64,7 @@ public class Adapter extends ArrayAdapter<Person> {
         //holder.imgView.setImageResource(p.getLevel());
         holder.scoreView.setText("" + p.getScore());
         holder.nameView.setText(p.getName());
-        holder.levelView.setText(" - Antal gættede ord: " + p.getLevel());
+        holder.levelView.setText(" - Level: " + p.getLevel());
 
         if(p.getLevel() == 1)
         {

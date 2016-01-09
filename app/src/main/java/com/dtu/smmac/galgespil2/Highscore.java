@@ -26,6 +26,7 @@ public class Highscore extends Fragment {
     private ListView lv;
     private TextView tv;
     private List<Person> personer;
+    private Splash_aktivitet sp;
 
     public static Adapter adap;
 
@@ -43,24 +44,17 @@ public class Highscore extends Fragment {
 
         tv.setText("Highscore liste:");
 
+        this.sp = new Splash_aktivitet();
+
         this.personer = new ArrayList<>();
 
-        this.personer.add(0, new Person("John", 1000, 1));
+        //Splash_aktivitet.db.updateDB(new Person("Farmand", 899574, 1));
 
-        this.personer.add(1, new Person("JohnJohn", 2135, 1));
 
-        this.personer.add(2, new Person("hul", 75678, 1));
-
-        this.personer.add(3, new Person("Josdfdsfn", 79878, 1));
-
-        this.personer.add(4, new Person("hejj", 6546547, 2));
-
-        this.personer.add(5, new Person("ælkæsdlf", 106540, 2));
-
-        this.personer.add(6, new Person("kæko", 789, 1));
-
-        this.personer.add(7, new Person("gæko", 10056450, 3));
-
+        for(int i = 0; i < Splash_aktivitet.db.getDB().size(); i++)
+        {
+            personer.add(Splash_aktivitet.db.getDB().get(i));
+        }
 
         setList();
 

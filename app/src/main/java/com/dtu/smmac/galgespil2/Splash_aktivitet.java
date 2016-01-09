@@ -13,15 +13,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Splash_aktivitet extends Activity {
 
     public static Fragment f1, f2, f3, f4;
     public static Galgelogik game;
+    public static DAO db;
     private ImageView img;
     private TextView lille;
     private Intent i, n;
     private Thread timer;
     private Runnable r, sp2, sp3, sp4, sp5, sp6, sp7, sp8, sp9, sp10, sp11, sp12, sp13;
+    private List<Person> highscore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +52,10 @@ public class Splash_aktivitet extends Activity {
         this.n = new Intent(this, NoInternet.class);
 
         if(isNetworkAvailable() == true) {
+
+            this.db = new DAO(this);
+
+            this.highscore = db.getDB();
 
             setRunable();
 
@@ -233,5 +242,6 @@ public class Splash_aktivitet extends Activity {
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
+
 }
 

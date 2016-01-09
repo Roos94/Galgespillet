@@ -8,6 +8,7 @@ public class Person {
     private String name;
     private long score;
     private int level;
+    public String id;
 
     public Person()
     {
@@ -34,6 +35,11 @@ public class Person {
     public int getLevel()
     {
         return level;
+    }
+
+    public String getId()
+    {
+        return this.id;
     }
 
 
