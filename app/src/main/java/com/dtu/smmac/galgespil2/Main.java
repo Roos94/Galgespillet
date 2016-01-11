@@ -38,7 +38,7 @@ public class Main extends FragmentActivity {
                 Help.class, null);
 
     }
-    @Override
+   /* @Override
     public boolean onTouchEvent(MotionEvent touchevent) {
         switch (touchevent.getAction()) {
             // Ved første tryk fra brugeren
@@ -83,7 +83,7 @@ public class Main extends FragmentActivity {
             else
                 mTabHost.setCurrentTab(0);
         }
-    }
+    }*/
 
 
 }
