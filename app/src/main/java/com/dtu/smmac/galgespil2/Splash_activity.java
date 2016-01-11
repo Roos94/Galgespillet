@@ -13,13 +13,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class Splash_aktivitet extends Activity {
+public class Splash_activity extends Activity {
 
     public static Fragment f1, f2, f3, f4;
-    public static Galgelogik game;
+    public static GameLogic game;
     public static DAO db;
     private ImageView img;
     private TextView lille;
@@ -32,7 +29,7 @@ public class Splash_aktivitet extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_aktivitet);
 
-        this.game = new Galgelogik();
+        this.game = new GameLogic();
 
         this.lille = (TextView) findViewById(R.id.lilleSplash);
         this.lille.setText("Made by: SMMAC");
@@ -41,8 +38,8 @@ public class Splash_aktivitet extends Activity {
         this.img.setImageResource(R.mipmap.p1);
 
         // *** Sætter Fragmenter ***
-        this.f1 = new GalgeSpil();
-        this.f2 = new Liste();
+        this.f1 = new Game();
+        this.f2 = new List();
         this.f3 = new Help();
         this.f4 = new Highscore();
 

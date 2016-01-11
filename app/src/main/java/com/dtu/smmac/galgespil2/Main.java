@@ -4,7 +4,6 @@ package com.dtu.smmac.galgespil2;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
-import android.view.MotionEvent;
 
 
 // *** Created by Mads Mortensen on 06-01-2016 ***
@@ -26,10 +25,10 @@ public class Main extends FragmentActivity {
 
         mTabHost.addTab(
                 mTabHost.newTabSpec("tab1").setIndicator("Spil", null),
-                GalgeSpil.class, null);
+                Game.class, null);
         mTabHost.addTab(
                 mTabHost.newTabSpec("tab2").setIndicator("Ordliste", null),
-                Liste.class, null);
+                List.class, null);
         mTabHost.addTab(
                 mTabHost.newTabSpec("tab3").setIndicator("Highscore", null),
                 Highscore.class, null);

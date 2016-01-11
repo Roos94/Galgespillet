@@ -2,7 +2,6 @@ package com.dtu.smmac.galgespil2;
 
 
 import android.support.v4.app.Fragment;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,12 +17,12 @@ import java.util.Collections;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class Liste extends Fragment implements AdapterView.OnItemClickListener {
+public class List extends Fragment implements AdapterView.OnItemClickListener {
 
     private ListView list;
     private ArrayList<String> ord;
 
-    public Liste() {
+    public List() {
     }
 
     @Override
@@ -35,8 +34,8 @@ public class Liste extends Fragment implements AdapterView.OnItemClickListener {
         list = (ListView) rod.findViewById(R.id.listView);
 
         // *** Sætter ArrayList ***
-        Splash_aktivitet.game.removeWords();
-        ord = Splash_aktivitet.game.getMuligeOrd();
+        Splash_activity.game.removeWords();
+        ord = Splash_activity.game.getMuligeOrd();
 
         // *** Sort ArrayList A-Z ***
         Collections.sort(ord, String.CASE_INSENSITIVE_ORDER);

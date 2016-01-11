@@ -14,8 +14,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.os.CountDownTimer;
 
+/**
+ * Created by Anders Thostrup Thomsen
+ */
 
-public class GalgeSpil extends Fragment implements View.OnClickListener {
+public class Game extends Fragment implements View.OnClickListener {
 
     // *** GUI ***
     private ImageView iv1;
@@ -40,8 +43,8 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
         View root = inflater.inflate(R.layout.fragment_galgespil, container, false);
 
         // *** Restart ***
-        Splash_aktivitet.game.nulstil();
-        Splash_aktivitet.game.removeWords();
+        Splash_activity.game.nulstil();
+        Splash_activity.game.removeWords();
 
         // *** ImageView and Start-screen ***
         iv1 = (ImageView) root.findViewById(R.id.imageView);
@@ -60,7 +63,7 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
         tv5 = (TextView) root.findViewById(R.id.textViewTime);
 
         // *** Start-text in textViews ***
-        tv1.setText(Splash_aktivitet.game.getSynligtOrd());
+        tv1.setText(Splash_activity.game.getSynligtOrd());
         tv2.setText("Velkommen til Galgespillet");
         tv3.setText("Forkerte gæt tilbage: 6");
         tv4.setText("Brugte bogstaver: ");
@@ -94,29 +97,29 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
                 if (et1.getText().toString().length() == 1 && Character.isLetter(c))
                 {
                     // *** Letter used? ***
-                    if (!Splash_aktivitet.game.getBrugteBogstaver().contains(et1.getText().toString()))
+                    if (!Splash_activity.game.getBrugteBogstaver().contains(et1.getText().toString()))
                     {
-                        Splash_aktivitet.game.gætBogstav(et1.getText().toString());
+                        Splash_activity.game.gætBogstav(et1.getText().toString());
 
                         // *** Wrong letter ***
-                        if (Splash_aktivitet.game.erSidsteBogstavKorrekt() == false)
+                        if (Splash_activity.game.erSidsteBogstavKorrekt() == false)
                         {
                             wrongLetter();
 
                             // *** Game over ***
-                            if (Splash_aktivitet.game.erSpilletTabt())
+                            if (Splash_activity.game.erSpilletTabt())
                             {
                                 gameOver();
                             }
 
                         }   // *** Correct letter ***
-                        else if (Splash_aktivitet.game.erSidsteBogstavKorrekt() == true)
+                        else if (Splash_activity.game.erSidsteBogstavKorrekt() == true)
                         {
                             tv2.setText("Flot! Godt gættet!");
                             hideSoftKeyboard(getActivity());
 
                             // *** Game won ***
-                            if (Splash_aktivitet.game.erSpilletVundet())
+                            if (Splash_activity.game.erSpilletVundet())
                             {
                                 gameWon();
                             }
@@ -137,7 +140,7 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
                 }
 
                 et1.setText("");
-                tv4.setText("Brugte bogstaver: " + "\n" + Splash_aktivitet.game.getBrugteBogstaver());
+                tv4.setText("Brugte bogstaver: " + "\n" + Splash_activity.game.getBrugteBogstaver());
             }
             else
             {
@@ -173,7 +176,7 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
             iv1.setImageResource(R.mipmap.tabt);
             countDownTimer.cancel();
             tv5.setText("Du nåede til level: " + playerLevel);
-            tv1.setText(Splash_aktivitet.game.getOrdet());
+            tv1.setText(Splash_activity.game.getOrdet());
         }
         else
         {
@@ -184,13 +187,13 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
             et1.setVisibility(View.INVISIBLE);
             countDownTimer.cancel();
             tv5.setText("");
-            tv1.setText(Splash_aktivitet.game.getOrdet());
+            tv1.setText(Splash_activity.game.getOrdet());
         }
     }
 
     public void gameWon()
     {
-        highscore = tempHighscore + ((6 - Splash_aktivitet.game.getAntalForkerteBogstaver())*10000);
+        highscore = tempHighscore + ((6 - Splash_activity.game.getAntalForkerteBogstaver())*10000);
         combinedHighscore = combinedHighscore + highscore;
         tv2.setText("Tillykke! Du har gættet ordet!!");
         iv1.setImageResource(R.mipmap.vundet);
@@ -205,7 +208,7 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
 
     public void newGame()
     {
-        Splash_aktivitet.game.nulstil();
+        Splash_activity.game.nulstil();
         countDownTimer.cancel();
         timerStartet = false;
         tempHighscore = 100000;
@@ -213,28 +216,28 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
         playerLevel = 0;
         combinedHighscore = 0;
         iv1.setImageResource(R.mipmap.galge);
-        tv1.setText(Splash_aktivitet.game.getSynligtOrd());
+        tv1.setText(Splash_activity.game.getSynligtOrd());
         tv2.setText("Nyt spil!");
         tv4.setText("");
         b1.setText("GÆT");
-        tv3.setText("Forkerte gæt tilbage: " + (6 - Splash_aktivitet.game.getAntalForkerteBogstaver()));
+        tv3.setText("Forkerte gæt tilbage: " + (6 - Splash_activity.game.getAntalForkerteBogstaver()));
         et1.setVisibility(View.VISIBLE);
         tv5.setText("");
     }
 
     public void nextLevel()
     {
-        Splash_aktivitet.game.nulstil();
+        Splash_activity.game.nulstil();
         countDownTimer.cancel();
         timerStartet = false;
         tempHighscore = 100000;
         highscore = 0;
         iv1.setImageResource(R.mipmap.galge);
-        tv1.setText(Splash_aktivitet.game.getSynligtOrd());
+        tv1.setText(Splash_activity.game.getSynligtOrd());
         tv2.setText("Fortsæt spil!");
         tv4.setText("");
         b1.setText("GÆT");
-        tv3.setText("Forkerte gæt tilbage: " + (6 - Splash_aktivitet.game.getAntalForkerteBogstaver()));
+        tv3.setText("Forkerte gæt tilbage: " + (6 - Splash_activity.game.getAntalForkerteBogstaver()));
         et1.setVisibility(View.VISIBLE);
         tv5.setText("");
     }
@@ -259,41 +262,41 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
             tv5.setText("");
 
             // Gem high score
-            Splash_aktivitet.db.updateDB(new Person(scoreName, this.combinedHighscore, this.playerLevel));
+            Splash_activity.db.updateDB(new Person(scoreName, this.combinedHighscore, this.playerLevel));
 
         }
     }
 
     public void wrongLetter()
     {
-        if (Splash_aktivitet.game.getAntalForkerteBogstaver() == 1) {
+        if (Splash_activity.game.getAntalForkerteBogstaver() == 1) {
             iv1.setImageResource(R.mipmap.forkert1);
-        } else if (Splash_aktivitet.game.getAntalForkerteBogstaver() == 2) {
+        } else if (Splash_activity.game.getAntalForkerteBogstaver() == 2) {
             iv1.setImageResource(R.mipmap.forkert2);
-        } else if (Splash_aktivitet.game.getAntalForkerteBogstaver() == 3) {
+        } else if (Splash_activity.game.getAntalForkerteBogstaver() == 3) {
             iv1.setImageResource(R.mipmap.forkert3);
-        } else if (Splash_aktivitet.game.getAntalForkerteBogstaver() == 4) {
+        } else if (Splash_activity.game.getAntalForkerteBogstaver() == 4) {
             iv1.setImageResource(R.mipmap.forkert4);
-        } else if (Splash_aktivitet.game.getAntalForkerteBogstaver() == 5) {
+        } else if (Splash_activity.game.getAntalForkerteBogstaver() == 5) {
             iv1.setImageResource(R.mipmap.forkert5);
-        } else if (Splash_aktivitet.game.getAntalForkerteBogstaver() == 6) {
+        } else if (Splash_activity.game.getAntalForkerteBogstaver() == 6) {
             iv1.setImageResource(R.mipmap.forkert6);
         }
 
         tv2.setText("Desværre! Forkert bogstav!");
-        tv3.setText("Forkerte gæt tilbage: " + (6 - Splash_aktivitet.game.getAntalForkerteBogstaver()));
+        tv3.setText("Forkerte gæt tilbage: " + (6 - Splash_activity.game.getAntalForkerteBogstaver()));
         hideSoftKeyboard(getActivity());
     }
 
     public void showWord()
     {
-        if (Splash_aktivitet.game.erSpilletTabt())
+        if (Splash_activity.game.erSpilletTabt())
         {
-            tv1.setText(Splash_aktivitet.game.getOrdet());
+            tv1.setText(Splash_activity.game.getOrdet());
         }
         else
         {
-            tv1.setText(Splash_aktivitet.game.getSynligtOrd());
+            tv1.setText(Splash_activity.game.getSynligtOrd());
         }
     }
 

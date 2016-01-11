@@ -1,5 +1,5 @@
 package com.dtu.smmac.galgespil2;
-// Hejsa med digsa
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Random;
 
-public class Galgelogik {
+public class GameLogic {
   private ArrayList<String> muligeOrd;
   private String ordet;
   private ArrayList<String> brugteBogstaver = new ArrayList<String>();
@@ -62,7 +62,7 @@ public class Galgelogik {
   }
 
 
-  public Galgelogik() {
+  public GameLogic() {
     muligeOrd = new ArrayList<String>();
 
     muligeOrd.add("bil");
