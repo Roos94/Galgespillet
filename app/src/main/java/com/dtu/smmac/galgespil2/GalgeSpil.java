@@ -156,6 +156,7 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
         else if (b1.getText().equals("GEM"))
         {
             saveScore();
+            hideSoftKeyboard(getActivity());
         }
     }
 
@@ -219,7 +220,6 @@ public class GalgeSpil extends Fragment implements View.OnClickListener {
         tv3.setText("Forkerte gæt tilbage: " + (6 - Splash_aktivitet.game.getAntalForkerteBogstaver()));
         et1.setVisibility(View.VISIBLE);
         tv5.setText("");
-        hideSoftKeyboard(getActivity());
     }
 
     public void nextLevel()
