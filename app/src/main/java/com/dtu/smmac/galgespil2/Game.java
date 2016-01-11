@@ -40,7 +40,7 @@ public class Game extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        View root = inflater.inflate(R.layout.fragment_galgespil, container, false);
+        View root = inflater.inflate(R.layout.fragment_game, container, false);
 
         // *** Restart ***
         Splash_activity.game.nulstil();

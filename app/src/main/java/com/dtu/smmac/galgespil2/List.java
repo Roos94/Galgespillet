@@ -28,7 +28,7 @@ public class List extends Fragment implements AdapterView.OnItemClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rod = inflater.inflate(R.layout.fragment_liste, container, false);
+        View rod = inflater.inflate(R.layout.fragment_list, container, false);
 
         // *** Sætter ListView ***
         list = (ListView) rod.findViewById(R.id.listView);

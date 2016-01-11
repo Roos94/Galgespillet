@@ -9,8 +9,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 /**
- * A placeholder fragment containing a simple view.
+ * Created by Anders Thostrup Thomsen
  */
+
 public class Help extends Fragment {
 
     private TextView tvHelp;
@@ -24,7 +25,7 @@ public class Help extends Fragment {
                              Bundle savedInstanceState) {
         View rod = inflater.inflate(R.layout.fragment_help, container, false);
 
-        // *** Sætter TextView ***
+        // *** TextView ***
         tvHelp = (TextView) rod.findViewById(R.id.textViewHelp);
 
         tvHelp.setText("Om spillet:\n" +

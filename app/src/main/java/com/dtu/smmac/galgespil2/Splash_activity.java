@@ -27,7 +27,7 @@ public class Splash_activity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash_aktivitet);
+        setContentView(R.layout.activity_splash_activity);
 
         this.game = new GameLogic();
 
