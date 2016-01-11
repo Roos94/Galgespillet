@@ -1,4 +1,4 @@
-package com.dtu.smmac.galgespil2;
+package com.dtu.smmac.galgespil2.Logic;
 
 /**
  * Created by SteenBartholdy on 06-01-2016.

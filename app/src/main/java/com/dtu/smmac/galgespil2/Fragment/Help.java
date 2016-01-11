@@ -1,4 +1,4 @@
-package com.dtu.smmac.galgespil2;
+package com.dtu.smmac.galgespil2.Fragment;
 
 
 import android.support.v4.app.Fragment;
@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.dtu.smmac.galgespil2.R;
 
 /**
  * Created by Anders Thostrup Thomsen

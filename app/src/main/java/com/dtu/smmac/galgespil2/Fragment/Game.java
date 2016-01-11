@@ -1,4 +1,4 @@
-package com.dtu.smmac.galgespil2;
+package com.dtu.smmac.galgespil2.Fragment;
 
 
 import android.app.Activity;
@@ -13,6 +13,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.os.CountDownTimer;
+
+import com.dtu.smmac.galgespil2.Activity.Splash_activity;
+import com.dtu.smmac.galgespil2.Logic.Person;
+import com.dtu.smmac.galgespil2.R;
 
 /**
  * Created by Anders Thostrup Thomsen

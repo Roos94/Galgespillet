@@ -1,13 +1,14 @@
-package com.dtu.smmac.galgespil2;
+package com.dtu.smmac.galgespil2.Activity;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
+
+import com.dtu.smmac.galgespil2.Activity.Main;
+import com.dtu.smmac.galgespil2.R;
 
 public class NoInternet extends Activity {
 

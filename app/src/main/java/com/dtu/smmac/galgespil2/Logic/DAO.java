@@ -1,4 +1,4 @@
-package com.dtu.smmac.galgespil2;
+package com.dtu.smmac.galgespil2.Logic;
 
 import android.content.Context;
 

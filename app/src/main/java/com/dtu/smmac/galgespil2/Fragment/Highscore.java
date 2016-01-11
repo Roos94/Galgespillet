@@ -1,4 +1,4 @@
-package com.dtu.smmac.galgespil2;
+package com.dtu.smmac.galgespil2.Fragment;
 
 
 import android.os.AsyncTask;
@@ -9,6 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.dtu.smmac.galgespil2.Activity.Splash_activity;
+import com.dtu.smmac.galgespil2.Adapter.Adapter;
+import com.dtu.smmac.galgespil2.R;
 
 /**
  * A placeholder fragment containing a simple view.

@@ -1,9 +1,15 @@
-package com.dtu.smmac.galgespil2;
+package com.dtu.smmac.galgespil2.Activity;
 
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
+
+import com.dtu.smmac.galgespil2.Fragment.Game;
+import com.dtu.smmac.galgespil2.Fragment.Help;
+import com.dtu.smmac.galgespil2.Fragment.Highscore;
+import com.dtu.smmac.galgespil2.Fragment.List;
+import com.dtu.smmac.galgespil2.R;
 
 
 // *** Created by Mads Mortensen on 06-01-2016 ***

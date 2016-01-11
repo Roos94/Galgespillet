@@ -1,4 +1,4 @@
-package com.dtu.smmac.galgespil2;
+package com.dtu.smmac.galgespil2.Activity;
 
 import android.app.Activity;
 import android.support.v4.app.Fragment;
@@ -12,6 +12,14 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.dtu.smmac.galgespil2.Logic.DAO;
+import com.dtu.smmac.galgespil2.Fragment.Game;
+import com.dtu.smmac.galgespil2.Logic.GameLogic;
+import com.dtu.smmac.galgespil2.Fragment.Help;
+import com.dtu.smmac.galgespil2.Fragment.Highscore;
+import com.dtu.smmac.galgespil2.Fragment.List;
+import com.dtu.smmac.galgespil2.R;
 
 public class Splash_activity extends Activity {
 

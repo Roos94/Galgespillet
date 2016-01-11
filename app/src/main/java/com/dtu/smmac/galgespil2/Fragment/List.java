@@ -1,4 +1,4 @@
-package com.dtu.smmac.galgespil2;
+package com.dtu.smmac.galgespil2.Fragment;
 
 
 import android.support.v4.app.Fragment;
@@ -10,6 +10,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.dtu.smmac.galgespil2.Activity.Splash_activity;
+import com.dtu.smmac.galgespil2.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
