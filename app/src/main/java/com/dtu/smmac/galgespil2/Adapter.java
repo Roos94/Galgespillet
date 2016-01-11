@@ -70,15 +70,22 @@ public class Adapter extends ArrayAdapter<Person> {
         {
             holder.imgView.setImageResource(R.mipmap.bronze);
         }
-        else if(p.getLevel() > 1 && p.getLevel() < 5)
+        else if(p.getLevel() == 2)
         {
             holder.imgView.setImageResource(R.mipmap.solv);
         }
-        else if(p.getLevel() > 4)
+        else if(p.getLevel() > 3 && p.getLevel() < 5)
         {
             holder.imgView.setImageResource(R.mipmap.guld);
         }
-
+        else if(p.getLevel() > 4 && p.getLevel() < 7)
+        {
+            holder.imgView.setImageResource(R.mipmap.crown1);
+        }
+        else if(p.getLevel() > 6)
+        {
+            holder.imgView.setImageResource(R.mipmap.crown2);
+        }
 
         return row;
     }
