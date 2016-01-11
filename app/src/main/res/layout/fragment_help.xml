@@ -5,6 +5,7 @@
     tools:context=".MainFragment"
     android:background="#ffffff">
 
+
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -14,5 +15,10 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_alignParentTop="true"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbars="vertical"
+        android:scrollX="0dp"
+        android:scrollY="5dp"
         android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
