@@ -26,7 +26,6 @@ public class Highscore extends Fragment {
 
     private ListView lv;
     private TextView tv;
-    private List<Person> personer;
 
     public static Adapter adap;
 

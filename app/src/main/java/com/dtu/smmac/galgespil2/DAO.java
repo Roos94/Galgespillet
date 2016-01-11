@@ -1,7 +1,6 @@
 package com.dtu.smmac.galgespil2;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -19,15 +18,14 @@ import java.util.List;
  */
 public class DAO {
 
-    private List<Person> personer;
-    private ArrayList<Person> nyPersoner;
+    private ArrayList<Person> person;
     private Firebase myFirebaseRef;
     private Firebase con;
     private Query queryRef;
 
     public DAO(Context c)
     {
-        this.nyPersoner = new ArrayList<Person>();
+        this.person = new ArrayList<Person>();
         setDBContext(c);
         this.myFirebaseRef = new Firebase("https://galgehighscore.firebaseio.com/");
         con = myFirebaseRef.child("v0").child("Personer");
@@ -49,7 +47,7 @@ public class DAO {
 
     public void getDB()
     {
-        this.nyPersoner.clear();
+        this.person.clear();
 
         queryRef.addValueEventListener(new ValueEventListener() {
 
@@ -58,9 +56,9 @@ public class DAO {
 
                 for (DataSnapshot personSnapshot : snapshot.getChildren()) {
                     Person p = personSnapshot.getValue(Person.class);
-                    nyPersoner.add(p);
+                    person.add(p);
                 }
-                Collections.reverse(nyPersoner);
+                Collections.reverse(person);
 
             }
 
@@ -73,7 +71,7 @@ public class DAO {
 
     public List<Person> getList()
     {
-        return nyPersoner;
+        return person;
     }
 
 }
