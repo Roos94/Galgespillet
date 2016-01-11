@@ -26,6 +26,7 @@ public class Help extends Fragment {
 
         // *** Sætter TextView ***
         tvHelp = (TextView) rod.findViewById(R.id.textViewHelp);
+
         tvHelp.setText("Om spillet:\n" +
                 "Galgespillet er et enkeltmands spil. Oprindeligt er spillet hovedsagligt blevet spillet på papir eller en på en tavle. Spillet går ud på at gætte et ord, hvor kun antallet af bogstaver er kendt, lidt i stil med Lykkehjulet Der gættes på et bogstav af gangen, hvor de korrekte bogstaver bliver placeret på de respektive pladser i ordet. For hver gang, der gættes forkert bliver der tegnet en del af en galge med en ophængt mand. Spilleren har 6 forkerte gæt, det vil sige, at når der gættes på et forkert bogstav 7. gang, så er spillet tabt. Spillet går ud på at gætte hele ordet inden tegningen bliver færdiggjort eller tiden løber ud." +
                 "\n" + "\n" +
