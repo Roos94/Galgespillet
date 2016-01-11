@@ -10,6 +10,7 @@ import com.firebase.client.Query;
 import com.firebase.client.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -26,17 +27,11 @@ public class DAO {
 
     public DAO(Context c)
     {
-        this.personer = new ArrayList<Person>();
         this.nyPersoner = new ArrayList<Person>();
         setDBContext(c);
         this.myFirebaseRef = new Firebase("https://galgehighscore.firebaseio.com/");
         con = myFirebaseRef.child("v0").child("Personer");
         queryRef = this.con.orderByChild("score");
-    }
-
-    public List<Person> getDao()
-    {
-        return personer;
     }
 
     public void setDBContext(Context c) {
@@ -52,17 +47,20 @@ public class DAO {
 
     }
 
-    public List<Person> getDB()
+    public void getDB()
     {
+        this.nyPersoner.clear();
+
         queryRef.addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot snapshot) {
 
-                  for (DataSnapshot personSnapshot: snapshot.getChildren()) {
+                for (DataSnapshot personSnapshot : snapshot.getChildren()) {
                     Person p = personSnapshot.getValue(Person.class);
                     nyPersoner.add(p);
                 }
+                Collections.reverse(nyPersoner);
 
             }
 
@@ -71,11 +69,12 @@ public class DAO {
             }
 
         });
-
-        return nyPersoner;
     }
 
-
+    public List<Person> getList()
+    {
+        return nyPersoner;
+    }
 
 }
 

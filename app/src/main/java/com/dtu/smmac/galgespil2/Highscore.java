@@ -1,6 +1,7 @@
 package com.dtu.smmac.galgespil2;
 
 
+import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -43,17 +44,26 @@ public class Highscore extends Fragment {
 
         tv.setText("Highscore liste:");
 
-        this.personer = new ArrayList<>();
-
-        //Splash_aktivitet.db.updateDB(new Person("Farmand", 899574, 1));
-
-
-        for(int i = 0; i < Splash_aktivitet.db.getDB().size(); i++)
+        new AsyncTask()
         {
-            personer.add(Splash_aktivitet.db.getDB().get(i));
-    }
 
-        Collections.reverse(personer);
+            @Override
+            protected Object doInBackground(Object[] params) {
+                try {
+                    Splash_aktivitet.db.getDB();
+                    return "1";
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return "Highscoren blev ikke hentet korrekt: " + e;
+                }
+            }
+
+            @Override
+            protected void onPostExecute(Object resultat){
+                adap.notifyDataSetChanged();
+            }
+
+            }.execute();
 
         setList();
 
@@ -62,7 +72,7 @@ public class Highscore extends Fragment {
 
 
     public void setList() {
-        this.adap = new Adapter(getActivity(), personer);
+        this.adap = new Adapter(getActivity(), Splash_aktivitet.db.getList());
         this.lv.setAdapter(adap);
     }
 
