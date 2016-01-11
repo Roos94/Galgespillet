@@ -5,11 +5,11 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
 import android.view.MotionEvent;
-import android.widget.TabHost;
+
 
 // *** Created by Mads Mortensen on 06-01-2016 ***
 
-public class Main extends FragmentActivity {//implements View.OnClickListener {
+public class Main extends FragmentActivity {
 
     private FragmentTabHost mTabHost;
     private float lastX;
@@ -41,7 +41,7 @@ public class Main extends FragmentActivity {//implements View.OnClickListener {
     @Override
     public boolean onTouchEvent(MotionEvent touchevent) {
         switch (touchevent.getAction()) {
-            // when user first touches the screen to swap
+            // Ved første tryk fra brugeren
             case MotionEvent.ACTION_DOWN:
 
             {
@@ -51,13 +51,13 @@ public class Main extends FragmentActivity {//implements View.OnClickListener {
             case MotionEvent.ACTION_UP: {
                 float currentX = touchevent.getX();
 
-                // if left to right swipe on screen
+                // Hvis der swipes fra venstre mod højre
                 if (lastX > currentX) {
 
                     switchTabs(false);
                 }
 
-                // if right to left swipe on screen
+                // Hvis der swipes fra højre mod venstre
                 if (lastX < currentX) {
                     switchTabs(true);
                 }
@@ -69,14 +69,14 @@ public class Main extends FragmentActivity {//implements View.OnClickListener {
     }
 
     public void switchTabs(boolean direction) {
-        if (direction) // true = move left
+        if (direction) // true = flyt til venstre
         {
             if (mTabHost.getCurrentTab()==0)
                mTabHost.setCurrentTab(mTabHost.getTabWidget().getTabCount() - 1);
             else
                 mTabHost.setCurrentTab(mTabHost.getCurrentTab() - 1);
         } else
-        // move right
+        // flyt til højre
         {
             if (mTabHost.getCurrentTab() != (mTabHost.getTabWidget().getTabCount() - 1))
                 mTabHost.setCurrentTab(mTabHost.getCurrentTab() + 1);
