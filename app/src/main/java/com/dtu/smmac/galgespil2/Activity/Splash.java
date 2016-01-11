@@ -21,7 +21,7 @@ import com.dtu.smmac.galgespil2.Fragment.Highscore;
 import com.dtu.smmac.galgespil2.Fragment.List;
 import com.dtu.smmac.galgespil2.R;
 
-public class Splash_activity extends Activity {
+public class Splash extends Activity {
 
     public static Fragment f1, f2, f3, f4;
     public static GameLogic game;
@@ -78,6 +78,7 @@ public class Splash_activity extends Activity {
                 try {
                     game.hentOrd();
                     db.getDB();
+                    game.removeWords();
                     f4 = new Highscore();
                     return "1";
                 } catch (Exception e) {

@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.dtu.smmac.galgespil2.Activity.Splash_activity;
+import com.dtu.smmac.galgespil2.Activity.Splash;
 import com.dtu.smmac.galgespil2.Adapter.Adapter;
 import com.dtu.smmac.galgespil2.R;
 
@@ -44,7 +44,7 @@ public class Highscore extends Fragment {
             @Override
             protected Object doInBackground(Object[] params) {
                 try {
-                    Splash_activity.db.getDB();
+                    Splash.db.getDB();
                     return "1";
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -66,7 +66,7 @@ public class Highscore extends Fragment {
 
 
     public void setList() {
-        this.adap = new Adapter(getActivity(), Splash_activity.db.getList());
+        this.adap = new Adapter(getActivity(), Splash.db.getList());
         this.lv.setAdapter(adap);
     }
 

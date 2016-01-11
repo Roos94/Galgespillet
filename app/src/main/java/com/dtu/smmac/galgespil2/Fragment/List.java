@@ -11,7 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.dtu.smmac.galgespil2.Activity.Splash_activity;
+import com.dtu.smmac.galgespil2.Activity.Splash;
 import com.dtu.smmac.galgespil2.R;
 
 import java.util.ArrayList;
@@ -37,8 +37,8 @@ public class List extends Fragment implements AdapterView.OnItemClickListener {
         list = (ListView) rod.findViewById(R.id.listView);
 
         // *** Sætter ArrayList ***
-        Splash_activity.game.removeWords();
-        ord = Splash_activity.game.getMuligeOrd();
+        Splash.game.removeWords();
+        ord = Splash.game.getMuligeOrd();
 
         // *** Sort ArrayList A-Z ***
         Collections.sort(ord, String.CASE_INSENSITIVE_ORDER);
