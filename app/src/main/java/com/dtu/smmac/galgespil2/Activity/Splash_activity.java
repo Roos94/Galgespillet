@@ -49,7 +49,6 @@ public class Splash_activity extends Activity {
         this.f1 = new Game();
         this.f2 = new List();
         this.f3 = new Help();
-        this.f4 = new Highscore();
 
         // *** Sætter Aktivitet ***
         this.i = new Intent(this, Main.class);
@@ -79,6 +78,7 @@ public class Splash_activity extends Activity {
                 try {
                     game.hentOrd();
                     db.getDB();
+                    f4 = new Highscore();
                     return "1";
                 } catch (Exception e) {
                     e.printStackTrace();

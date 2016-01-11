@@ -35,9 +35,11 @@ public class Main extends FragmentActivity {
         mTabHost.addTab(
                 mTabHost.newTabSpec("tab2").setIndicator("Ordliste", null),
                 List.class, null);
-        mTabHost.addTab(
-                mTabHost.newTabSpec("tab3").setIndicator("Highscore", null),
-                Highscore.class, null);
+        if (Splash_activity.f4 != null) {
+            mTabHost.addTab(
+                    mTabHost.newTabSpec("tab3").setIndicator("Highscore", null),
+                    Highscore.class, null);
+        }
         mTabHost.addTab(
                 mTabHost.newTabSpec("tab4").setIndicator("Hjælp", null),
                 Help.class, null);

@@ -169,7 +169,7 @@ public class Game extends Fragment implements View.OnClickListener {
 
     public void gameOver()
     {
-        if (combinedHighscore > 0)
+        if (combinedHighscore > 0 && Splash_activity.f4 != null)
         {
             tv2.setText("Desværre! Du har tabt!");
             tv3.setText("Din score blev: " + this.combinedHighscore);

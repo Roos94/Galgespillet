@@ -22,9 +22,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.Main" />
+
+        <activity android:name=".Activity.Main"
+            android:screenOrientation="portrait"
+            />
         <activity android:name=".Activity.NoInternet"
-            android:theme="@style/SK"></activity>
+            android:theme="@style/SK"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
