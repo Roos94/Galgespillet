@@ -77,7 +77,7 @@ public class Adapter extends ArrayAdapter<Person> {
         {
             holder.imgView.setImageResource(R.mipmap.solv);
         }
-        else if(p.getLevel() > 3 && p.getLevel() < 5)
+        else if(p.getLevel() > 2 && p.getLevel() < 5)
         {
             holder.imgView.setImageResource(R.mipmap.guld);
         }
