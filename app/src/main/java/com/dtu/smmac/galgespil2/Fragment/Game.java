@@ -14,7 +14,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.os.CountDownTimer;
-import android.os.SystemClock;
 
 import com.dtu.smmac.galgespil2.Activity.Splash;
 import com.dtu.smmac.galgespil2.Logic.Person;
@@ -404,8 +403,6 @@ public class Game extends Fragment implements View.OnClickListener {
         @Override
         public void onFinish()
         {
-            playTimesUp();
-            SystemClock.sleep(1000);
             playGameOver();
             tempHighscore = 0;
             gameOver();
@@ -425,6 +422,10 @@ public class Game extends Fragment implements View.OnClickListener {
         {
             tempHighscore = millisUntilFinished;
             tv5.setText("Tid: " + millisUntilFinished / 1000 + "   Point: " + tempHighscore);
+            if (millisUntilFinished/1000 == 1)
+            {
+                playTimesUp();
+            }
         }
 
     }
