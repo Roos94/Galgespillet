@@ -42,7 +42,7 @@ public class Game extends Fragment implements View.OnClickListener {
     private long combinedHighscore = 0;
 
     // *** Soundeffects ***
-    private MediaPlayer applauseEffect, wrongLetterEffect, correctLetterEffect, gameOverEffect;
+    private MediaPlayer applauseEffect, wrongLetterEffect, correctLetterEffect, gameOverEffect, usedLetterEffect, noLetterEffect;
 
 
     @Override
@@ -86,6 +86,8 @@ public class Game extends Fragment implements View.OnClickListener {
         wrongLetterEffect = MediaPlayer.create(getActivity(), R.raw.wrongletter);
         correctLetterEffect = MediaPlayer.create(getActivity(), R.raw.correctletter);
         gameOverEffect = MediaPlayer.create(getActivity(), R.raw.gameover);
+        usedLetterEffect = MediaPlayer.create(getActivity(), R.raw.usedletter);
+        noLetterEffect = MediaPlayer.create(getActivity(), R.raw.noletter);
 
         // *** Start Check / Control timer after return from other tab ***
         startUpCheck();
@@ -148,12 +150,14 @@ public class Game extends Fragment implements View.OnClickListener {
                     else
                     {
                         tv2.setText("Bogstavet er brugt!");
+                        playUsedLetter();
                         hideSoftKeyboard(getActivity());
                     }
                 }
                 else
                 {
                     tv2.setText("Indtast venligst et bogstav");
+                    playNoLetter();
                     hideSoftKeyboard(getActivity());
                 }
 
@@ -346,7 +350,7 @@ public class Game extends Fragment implements View.OnClickListener {
         }
     }
 
-    // *** Soundeffects ***
+    // *** Sound-effects ***
     public void playApplause()
     {
         applauseEffect.start();
@@ -365,6 +369,16 @@ public class Game extends Fragment implements View.OnClickListener {
     public void playGameOver()
     {
         gameOverEffect.start();
+    }
+
+    public void playUsedLetter()
+    {
+        usedLetterEffect.start();
+    }
+
+    public void playNoLetter()
+    {
+        noLetterEffect.start();
     }
 
     public void hideSoftKeyboard(Activity activity)
