@@ -404,8 +404,8 @@ public class Game extends Fragment implements View.OnClickListener {
         @Override
         public void onFinish()
         {
-            playTimesUp();
             tv5.setText("Tid: " + 0 + "   Point: " + 0);
+            playTimesUp();
             SystemClock.sleep(1000);
             playGameOver();
             tempHighscore = 0;
