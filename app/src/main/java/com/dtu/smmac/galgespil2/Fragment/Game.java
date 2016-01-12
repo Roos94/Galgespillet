@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.os.CountDownTimer;
+import android.os.SystemClock;
 
 import com.dtu.smmac.galgespil2.Activity.Splash;
 import com.dtu.smmac.galgespil2.Logic.Person;
@@ -42,7 +43,7 @@ public class Game extends Fragment implements View.OnClickListener {
     private long combinedHighscore = 0;
 
     // *** Soundeffects ***
-    private MediaPlayer applauseEffect, wrongLetterEffect, correctLetterEffect, gameOverEffect, usedLetterEffect, noLetterEffect;
+    private MediaPlayer applauseEffect, wrongLetterEffect, correctLetterEffect, gameOverEffect, usedLetterEffect, noLetterEffect, timesUpEffect;
 
 
     @Override
@@ -88,6 +89,7 @@ public class Game extends Fragment implements View.OnClickListener {
         gameOverEffect = MediaPlayer.create(getActivity(), R.raw.gameover);
         usedLetterEffect = MediaPlayer.create(getActivity(), R.raw.usedletter);
         noLetterEffect = MediaPlayer.create(getActivity(), R.raw.noletter);
+        timesUpEffect = MediaPlayer.create(getActivity(), R.raw.timesup);
 
         // *** Start Check / Control timer after return from other tab ***
         startUpCheck();
@@ -187,8 +189,7 @@ public class Game extends Fragment implements View.OnClickListener {
 
     public void gameOver()
     {
-        if (combinedHighscore > 0 && Splash.f4 != null)
-        {
+        if (combinedHighscore > 0 && Splash.f4 != null) {
             tv2.setText("Desværre! Du har tabt!");
             tv3.setText("Din score blev: " + this.combinedHighscore);
             b1.setText("GEM");
@@ -312,8 +313,7 @@ public class Game extends Fragment implements View.OnClickListener {
 
     public void showWord()
     {
-        if (Splash.game.erSpilletTabt())
-        {
+        if (Splash.game.erSpilletTabt()) {
             tv1.setText(Splash.game.getOrdet());
         }
         else
@@ -381,6 +381,11 @@ public class Game extends Fragment implements View.OnClickListener {
         noLetterEffect.start();
     }
 
+    public void playTimesUp()
+    {
+        timesUpEffect.start();
+    }
+
     public void hideSoftKeyboard(Activity activity)
     {
         InputMethodManager inputMethodManager = (InputMethodManager)  activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
@@ -399,6 +404,9 @@ public class Game extends Fragment implements View.OnClickListener {
         @Override
         public void onFinish()
         {
+            playTimesUp();
+            SystemClock.sleep(1000);
+            playGameOver();
             tempHighscore = 0;
             gameOver();
             if (combinedHighscore > 0)
