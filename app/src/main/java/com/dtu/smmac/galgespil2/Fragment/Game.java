@@ -34,7 +34,7 @@ public class Game extends Fragment implements View.OnClickListener {
 
     // *** Highscore ***
     private HighscoreTimer countDownTimer;
-    private final long startTime = 100000;
+    private final long startTime = 10000;
     private final long intervalTime = 1000;
     static long tempHighscore = 100000;
     private long highscore = 0;
@@ -404,7 +404,6 @@ public class Game extends Fragment implements View.OnClickListener {
         @Override
         public void onFinish()
         {
-            tv5.setText("Tid: " + 0 + "   Point: " + 0);
             playTimesUp();
             SystemClock.sleep(1000);
             playGameOver();
