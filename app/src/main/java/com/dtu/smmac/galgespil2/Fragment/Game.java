@@ -2,6 +2,7 @@ package com.dtu.smmac.galgespil2.Fragment;
 
 
 import android.app.Activity;
+import android.media.MediaPlayer;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -40,6 +41,9 @@ public class Game extends Fragment implements View.OnClickListener {
     private int playerLevel = 0;
     private long combinedHighscore = 0;
 
+    // *** Soundeffects ***
+    private MediaPlayer applauseEffect, wrongLetterEffect, correctLetterEffect, gameOverEffect;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -77,6 +81,12 @@ public class Game extends Fragment implements View.OnClickListener {
         et1.setText("");
         et1.setHint("Indtast Bogstav");
 
+        // *** Soundeffects ***
+        applauseEffect = MediaPlayer.create(getActivity(), R.raw.applause);
+        wrongLetterEffect = MediaPlayer.create(getActivity(), R.raw.wrongletter);
+        correctLetterEffect = MediaPlayer.create(getActivity(), R.raw.correctletter);
+        gameOverEffect = MediaPlayer.create(getActivity(), R.raw.gameover);
+
         // *** Start Check / Control timer after return from other tab ***
         startUpCheck();
 
@@ -109,23 +119,27 @@ public class Game extends Fragment implements View.OnClickListener {
                         if (Splash.game.erSidsteBogstavKorrekt() == false)
                         {
                             wrongLetter();
+                            playWrongLetter();
 
                             // *** Game over ***
                             if (Splash.game.erSpilletTabt())
                             {
                                 gameOver();
+                                playGameOver();
                             }
 
                         }   // *** Correct letter ***
                         else if (Splash.game.erSidsteBogstavKorrekt() == true)
                         {
                             tv2.setText("Flot! Godt gættet!");
+                            playCorrectLetter();
                             hideSoftKeyboard(getActivity());
 
                             // *** Game won ***
                             if (Splash.game.erSpilletVundet())
                             {
                                 gameWon();
+                                playApplause();
                             }
                         }
                         // *** Show the word if game is over ***
@@ -330,6 +344,27 @@ public class Game extends Fragment implements View.OnClickListener {
             countDownTimer.start();
             timerStartet = true;
         }
+    }
+
+    // *** Soundeffects ***
+    public void playApplause()
+    {
+        applauseEffect.start();
+    }
+
+    public void playWrongLetter()
+    {
+        wrongLetterEffect.start();
+    }
+
+    public void playCorrectLetter()
+    {
+        correctLetterEffect.start();
+    }
+
+    public void playGameOver()
+    {
+        gameOverEffect.start();
     }
 
     public void hideSoftKeyboard(Activity activity)
