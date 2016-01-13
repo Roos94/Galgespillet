@@ -36,7 +36,7 @@ public class Highscore extends Fragment {
         lv = (ListView) rod.findViewById(R.id.lvHighscore);
         tv = (TextView) rod.findViewById(R.id.tvHighscore);
 
-        tv.setText("Highscore liste:");
+        tv.setText("HIGHSCORELISTE");
 
         new AsyncTask()
         {

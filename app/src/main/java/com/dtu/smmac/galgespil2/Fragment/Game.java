@@ -41,7 +41,7 @@ public class Game extends Fragment implements View.OnClickListener {
     private int playerLevel = 0;
     private long combinedHighscore = 0;
 
-    // *** Soundeffects ***
+    // *** Soundeffects ***ø
     private MediaPlayer applauseEffect, wrongLetterEffect, correctLetterEffect, gameOverEffect, usedLetterEffect, noLetterEffect, timesUpEffect;
 
 
