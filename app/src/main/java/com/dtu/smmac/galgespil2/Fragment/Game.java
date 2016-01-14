@@ -285,6 +285,10 @@ public class Game extends Fragment implements View.OnClickListener {
         {
             tv2.setText("Skriv ét navn!");
         }
+        else if (scoreName.length() > 25)
+        {
+            tv2.setText("Indtast max. 25 tegn!");
+        }
         else
         {
             tv2.setText("Spillet er slut!");
