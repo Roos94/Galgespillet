@@ -188,7 +188,8 @@ public class Game extends Fragment implements View.OnClickListener {
 
     public void gameOver()
     {
-        if (combinedHighscore > 0 && Splash.f4 != null) {
+        if (combinedHighscore > 100000 && Splash.f4 != null)
+        {
             tv2.setText("Desværre! Du har tabt!");
             tv3.setText("Din score blev: " + this.combinedHighscore);
             b1.setText("GEM");
@@ -196,6 +197,18 @@ public class Game extends Fragment implements View.OnClickListener {
             et1.setHint("Indtast Navn");
             tv4.setText("");
             iv1.setImageResource(R.mipmap.tabt);
+            countDownTimer.cancel();
+            tv5.setText("Du nåede til level: " + playerLevel);
+            tv1.setText(Splash.game.getOrdet());
+        }
+        else if (100000 > combinedHighscore && combinedHighscore > 0)
+        {
+            tv2.setText("Desværre! Du har tabt!");
+            iv1.setImageResource(R.mipmap.tabt);
+            tv3.setText("Din score blev: " + this.combinedHighscore);
+            b1.setText("NYT SPIL");
+            et1.setVisibility(View.INVISIBLE);
+            tv4.setText("");
             countDownTimer.cancel();
             tv5.setText("Du nåede til level: " + playerLevel);
             tv1.setText(Splash.game.getOrdet());
