@@ -69,19 +69,19 @@ public class Adapter extends ArrayAdapter<Person> {
         holder.nameView.setText(p.getName());
         holder.levelView.setText(" - Level: " + p.getLevel());
 
-        if(p.getScore() >= 100000)
+        if(p.getScore() >= 100000 && p.getScore() < 200000)
         {
             holder.imgView.setImageResource(R.mipmap.bronze);
         }
-        else if(p.getScore() >= 200000 && p.getScore() <= 300000)
+        else if(p.getScore() >= 200000 && p.getScore() < 300000)
         {
             holder.imgView.setImageResource(R.mipmap.solv);
         }
-        else if(p.getScore() >= 300000 && p.getScore() <= 500000)
+        else if(p.getScore() >= 300000 && p.getScore() < 500000)
         {
             holder.imgView.setImageResource(R.mipmap.guld);
         }
-        else if(p.getScore() >= 500000 && p.getScore() <= 700000)
+        else if(p.getScore() >= 500000 && p.getScore() < 700000)
         {
             holder.imgView.setImageResource(R.mipmap.crown1);
         }
