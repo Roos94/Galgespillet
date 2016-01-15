@@ -14,13 +14,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.os.CountDownTimer;
-
 import com.dtu.smmac.galgespil2.Activity.Splash;
 import com.dtu.smmac.galgespil2.Logic.Person;
 import com.dtu.smmac.galgespil2.R;
 
 /**
- * Created by Anders Thostrup Thomsen
+ *  *** Created by Anders Thostrup Thomsen (S140996) ***
  */
 
 public class Game extends Fragment implements View.OnClickListener {
@@ -90,7 +89,7 @@ public class Game extends Fragment implements View.OnClickListener {
         noLetterEffect = MediaPlayer.create(getActivity(), R.raw.noletter);
         timesUpEffect = MediaPlayer.create(getActivity(), R.raw.timesup);
 
-        // *** Start Check / Control timer after return from other tab ***
+        // *** Start Check / Control of timer after return from other tab ***
         startUpCheck();
 
         return root;
@@ -300,7 +299,7 @@ public class Game extends Fragment implements View.OnClickListener {
             tv4.setText("");
             tv5.setText("");
 
-            // Gem high score
+            // *** save highscore to database ***
             Splash.db.updateDB(new Person(scoreName, this.combinedHighscore, this.playerLevel));
 
         }
@@ -408,6 +407,8 @@ public class Game extends Fragment implements View.OnClickListener {
         inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
 
     }
+
+    // *** countdowntimer used for highscore ***
 
     public class HighscoreTimer extends CountDownTimer
     {

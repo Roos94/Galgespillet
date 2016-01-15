@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.dtu.smmac.galgespil2.R;
 
 /**
- * Created by Anders Thostrup Thomsen
+ * *** Created by Anders Thostrup Thomsen (S140996) ***
  */
 
 public class Help extends Fragment {
@@ -40,7 +40,7 @@ public class Help extends Fragment {
                         "Hvis en spiller har gættet et eller flere ord korrekt, giver dette mulighed for, at blive tildelt en plads på den eftertragtede highscoreliste. Spilleren bliver her bedt om, at indtaste sit navn. Herefter vil spillerens navn, opnåede level og point fremgå på highscorelisten. Alt efter hvor mange point, som spilleren har opnået, tildeles denne et tilsvarende trofæ, som ligeledes fremgår på highscorelisten."+
                 "\n" + "\n" +
                 "Ordliste:\n" +
-        "Denne liste indeholde alle de hentede ord, som bruges i spillet. Ordene er hentet fra DR’s hjemmeside (https://www.dr.dk). Ordene har i processen passeret et filter, hvor alle ord under 7 og over 19, vil blive sorteret fra. Ligeledes vil alle ord der ikke indeholder en vokal blive sorteret fra. Da ordene bliver hentet fra en hjemmeside, der løbende bliver opdateret, vil der lejlighedsvis være mulighed for stavefejl, hvilket det opsatte filter ikke fanger."+
+                "Denne liste indeholde alle de hentede ord, som bruges i spillet. Ordene er hentet fra DR’s hjemmeside (https://www.dr.dk). Ordene har i processen passeret et filter, hvor alle ord under 7 og over 19, vil blive sorteret fra. Ligeledes vil alle ord der ikke indeholder en vokal blive sorteret fra. Da ordene bliver hentet fra en hjemmeside, der løbende bliver opdateret, vil der lejlighedsvis være mulighed for stavefejl, hvilket det opsatte filter ikke fanger."+
                 "\n" + "\n" +
                 "Udviklet af:\n" +
 
