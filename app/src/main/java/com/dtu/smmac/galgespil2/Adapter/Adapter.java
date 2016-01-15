@@ -64,11 +64,12 @@ public class Adapter extends ArrayAdapter<Person> {
 
         Person p = this.personer.get(position);
 
-        //holder.imgView.setImageResource(p.getLevel());
+        //*** Set up the list view with text***
         holder.scoreView.setText("" + p.getScore());
         holder.nameView.setText(p.getName());
         holder.levelView.setText(" - Level: " + p.getLevel());
 
+        //*** Set the highscore logo from the highscore***
         if(p.getScore() >= 100000 && p.getScore() < 200000)
         {
             holder.imgView.setImageResource(R.mipmap.bronze);

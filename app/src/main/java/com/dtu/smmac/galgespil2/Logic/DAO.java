@@ -31,12 +31,12 @@ public class DAO {
         con = myFirebaseRef.child("v0").child("Personer");
         queryRef = this.con.orderByChild("score");
     }
-
+    //*** Set context ***
     public void setDBContext(Context c) {
         Firebase.setAndroidContext(c);
     }
 
-
+    //*** Add a new person to the firebase database with a unique id ***
     public void updateDB(Person p)
     {
         Firebase fxx = myFirebaseRef.child("v0").child("Personer").push();
@@ -45,6 +45,7 @@ public class DAO {
 
     }
 
+    //*** Downloading the firebase database with all the persons on the highscore and add them to an ArrayList<Person> ***
     public void getDB()
     {
         this.person.clear();
@@ -69,6 +70,7 @@ public class DAO {
         });
     }
 
+    //*** Returns the List og persons on the highscore ***
     public List<Person> getList()
     {
         return person;

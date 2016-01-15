@@ -10,6 +10,7 @@ public class Person {
     private int level;
     public String id;
 
+    // *** Empty constructor needed to use firebase ***
     public Person()
     {
 
