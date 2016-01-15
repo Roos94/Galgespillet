@@ -136,6 +136,7 @@ public class Game extends Fragment implements View.OnClickListener {
                         else if (Splash.game.erSidsteBogstavKorrekt() == true)
                         {
                             tv2.setText("Flot! Godt gættet!");
+                            tv2.setTextColor(0xFF00FF00);
                             playCorrectLetter();
                             hideSoftKeyboard(getActivity());
 
@@ -152,6 +153,7 @@ public class Game extends Fragment implements View.OnClickListener {
                     else
                     {
                         tv2.setText("Bogstavet er brugt!");
+                        tv2.setTextColor(0xff000000);
                         playUsedLetter();
                         hideSoftKeyboard(getActivity());
                     }
@@ -159,6 +161,7 @@ public class Game extends Fragment implements View.OnClickListener {
                 else
                 {
                     tv2.setText("Indtast venligst et bogstav");
+                    tv2.setTextColor(0xff000000);
                     playNoLetter();
                     hideSoftKeyboard(getActivity());
                 }
@@ -169,6 +172,7 @@ public class Game extends Fragment implements View.OnClickListener {
             else
             {
                 tv2.setText("Indtast venligst et bogstav");
+                tv2.setTextColor(0xff000000);
                 hideSoftKeyboard(getActivity());
             }
         }
@@ -192,6 +196,7 @@ public class Game extends Fragment implements View.OnClickListener {
         if (combinedHighscore > 100000 && Splash.f4 != null)
         {
             tv2.setText("Desværre! Du har tabt!");
+            tv2.setTextColor(0xffff0000);
             tv3.setText("Din score blev: " + this.combinedHighscore);
             b1.setText("GEM");
             et1.setVisibility(View.VISIBLE);
@@ -205,6 +210,7 @@ public class Game extends Fragment implements View.OnClickListener {
         else if (100000 > combinedHighscore && combinedHighscore > 0)
         {
             tv2.setText("Desværre! Du har tabt!");
+            tv2.setTextColor(0xffff0000);
             iv1.setImageResource(R.mipmap.tabt);
             tv3.setText("Din score blev: " + this.combinedHighscore);
             b1.setText("NYT SPIL");
@@ -217,6 +223,7 @@ public class Game extends Fragment implements View.OnClickListener {
         else
         {
             tv2.setText("Desværre! Du har tabt!");
+            tv2.setTextColor(0xffff0000);
             iv1.setImageResource(R.mipmap.tabt);
             tv3.setText("");
             b1.setText("NYT SPIL");
@@ -232,6 +239,7 @@ public class Game extends Fragment implements View.OnClickListener {
         highscore = tempHighscore + ((6 - Splash.game.getAntalForkerteBogstaver())*10000);
         combinedHighscore = combinedHighscore + highscore;
         tv2.setText("Tillykke! Du har gættet ordet!!");
+        tv2.setTextColor(0xFF00FF00);
         iv1.setImageResource(R.mipmap.vundet);
         playerLevel++;
         tv4.setText("");
@@ -254,6 +262,7 @@ public class Game extends Fragment implements View.OnClickListener {
         iv1.setImageResource(R.mipmap.galge);
         tv1.setText(Splash.game.getSynligtOrd());
         tv2.setText("Nyt spil!");
+        tv2.setTextColor(0xff000000);
         tv4.setText("");
         b1.setText("GÆT");
         tv3.setText("Forkerte gæt tilbage: " + (6 - Splash.game.getAntalForkerteBogstaver()));
@@ -271,6 +280,7 @@ public class Game extends Fragment implements View.OnClickListener {
         iv1.setImageResource(R.mipmap.galge);
         tv1.setText(Splash.game.getSynligtOrd());
         tv2.setText("Fortsæt spil!");
+        tv2.setTextColor(0xff000000);
         tv4.setText("");
         b1.setText("GÆT");
         tv3.setText("Forkerte gæt tilbage: " + (6 - Splash.game.getAntalForkerteBogstaver()));
@@ -285,14 +295,17 @@ public class Game extends Fragment implements View.OnClickListener {
         if (scoreName.equals(""))
         {
             tv2.setText("Skriv ét navn!");
+            tv2.setTextColor(0xff000000);
         }
         else if (scoreName.length() > 25)
         {
             tv2.setText("Indtast max. 25 tegn!");
+            tv2.setTextColor(0xff000000);
         }
         else
         {
             tv2.setText("Spillet er slut!");
+            tv2.setTextColor(0xff000000);
             b1.setText("NYT SPIL");
             et1.setVisibility(View.INVISIBLE);
             et1.setHint("Indtast Bogstav");
@@ -324,6 +337,7 @@ public class Game extends Fragment implements View.OnClickListener {
         }
 
         tv2.setText("Desværre! Forkert bogstav!");
+        tv2.setTextColor(0xffff0000);
         tv3.setText("Forkerte gæt tilbage: " + (6 - Splash.game.getAntalForkerteBogstaver()));
         hideSoftKeyboard(getActivity());
     }
