@@ -99,6 +99,8 @@ public class Game extends Fragment implements View.OnClickListener {
     public void onClick(View v)
     {
         // *** Start game ***
+
+
         if (b1.getText().equals("GÆT"))
         {
             timerCheck();

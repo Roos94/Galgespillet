@@ -44,6 +44,8 @@ public class Main extends FragmentActivity {
                 mTabHost.newTabSpec("tab4").setIndicator("Hjælp", null),
                 Help.class, null);
 
+
+
     }
    /* @Override
     public boolean onTouchEvent(MotionEvent touchevent) {
