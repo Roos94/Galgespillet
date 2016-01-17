@@ -4,6 +4,10 @@ package com.dtu.smmac.galgespil2.Activity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
+import android.util.Log;
+import android.view.View;
+import android.widget.TabHost;
+import android.widget.TabWidget;
 
 import com.dtu.smmac.galgespil2.Fragment.Game;
 import com.dtu.smmac.galgespil2.Fragment.Help;
@@ -29,6 +33,7 @@ public class Main extends FragmentActivity {
         mTabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
         mTabHost.setup(this, getSupportFragmentManager(), android.R.id.tabcontent);
 
+
         mTabHost.addTab(
                 mTabHost.newTabSpec("tab1").setIndicator("Spil", null),
                 Game.class, null);
@@ -44,6 +49,12 @@ public class Main extends FragmentActivity {
                 mTabHost.newTabSpec("tab4").setIndicator("Hjælp", null),
                 Help.class, null);
 
+        mTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+            @Override
+            public void onTabChanged(String tabId) {
+                mTabHost.getCurrentTabView().setFocusableInTouchMode(true);
+            }
+        });
 
 
     }

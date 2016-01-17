@@ -19,13 +19,15 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:scrollbars="none"
-            android:focusableInTouchMode="true">
+            android:focusableInTouchMode="true"
+            android:fillViewport="true">
 
         <TabWidget
             android:id="@android:id/tabs"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"/>
+            android:layout_gravity="bottom"
+            android:focusableInTouchMode="true"/>
 
         </HorizontalScrollView>
 
