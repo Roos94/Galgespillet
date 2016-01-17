@@ -1,6 +1,7 @@
 package com.dtu.smmac.galgespil2.Activity;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
@@ -49,12 +50,18 @@ public class Main extends FragmentActivity {
                 mTabHost.newTabSpec("tab4").setIndicator("Hjælp", null),
                 Help.class, null);
 
+        for (int i = 0; i < 4; i++) {
+            mTabHost.setCurrentTab(i);
+            mTabHost.getCurrentTabView().setFocusableInTouchMode(true);
+        }
+/*
         mTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
                 mTabHost.getCurrentTabView().setFocusableInTouchMode(true);
             }
         });
+        */
 
 
     }
@@ -104,6 +111,5 @@ public class Main extends FragmentActivity {
                 mTabHost.setCurrentTab(0);
         }
     }*/
-
 
 }
