@@ -13,21 +13,25 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <HorizontalScrollView
+            android:id="@+id/hsv"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:scrollbars="none"
             android:focusableInTouchMode="true"
-            android:fillViewport="true">
+            android:fillViewport="true"
+            >
 
         <TabWidget
             android:id="@android:id/tabs"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:focusableInTouchMode="true" />
+            android:focusableInTouchMode="true"
+            android:dividerPadding="5dp"
+            />
 
         </HorizontalScrollView>
 
@@ -35,7 +39,10 @@
             android:id="@android:id/tabcontent"
             android:layout_width="fill_parent"
             android:layout_height="0dp"
-            android:layout_weight="1" />
+            android:layout_weight="1">
+
+        </FrameLayout>
+
     </LinearLayout>
 
 </android.support.v4.app.FragmentTabHost>

@@ -4,6 +4,7 @@ package com.dtu.smmac.galgespil2.Activity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
+import android.widget.HorizontalScrollView;
 import android.widget.TabHost;
 
 import com.dtu.smmac.galgespil2.Fragment.Game;
@@ -18,6 +19,7 @@ import com.dtu.smmac.galgespil2.R;
 public class Main extends FragmentActivity {
 
     private FragmentTabHost mTabHost;
+    private HorizontalScrollView hsv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,7 @@ public class Main extends FragmentActivity {
         mTabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
         mTabHost.setup(this, getSupportFragmentManager(), android.R.id.tabcontent);
 
+        hsv = (HorizontalScrollView) findViewById(R.id.hsv);
 
         mTabHost.addTab(
                 mTabHost.newTabSpec("tab1").setIndicator("Spil", null),
@@ -52,6 +55,17 @@ public class Main extends FragmentActivity {
 
         mTabHost.setCurrentTab(0);
 
+        mTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+            @Override
+            public void onTabChanged(String tabId) {
+                if (mTabHost.getCurrentTab() == 1) {
+                    hsv.scrollTo(20,0);
+                }
+                if (mTabHost.getCurrentTab() == 2) {
+                    hsv.scrollTo(120,0);
+                }
+            }
+        });
 
     }
 
