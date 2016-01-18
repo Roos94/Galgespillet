@@ -18,7 +18,6 @@ import com.dtu.smmac.galgespil2.R;
 public class Main extends FragmentActivity {
 
     private FragmentTabHost mTabHost;
-    private float lastX;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,52 +52,7 @@ public class Main extends FragmentActivity {
 
         mTabHost.setCurrentTab(0);
 
+
     }
-   /* @Override
-    public boolean onTouchEvent(MotionEvent touchevent) {
-        switch (touchevent.getAction()) {
-            // Ved første tryk fra brugeren
-            case MotionEvent.ACTION_DOWN:
-
-            {
-                lastX = touchevent.getX();
-                break;
-            }
-            case MotionEvent.ACTION_UP: {
-                float currentX = touchevent.getX();
-
-                // Hvis der swipes fra venstre mod højre
-                if (lastX > currentX) {
-
-                    switchTabs(false);
-                }
-
-                // Hvis der swipes fra højre mod venstre
-                if (lastX < currentX) {
-                    switchTabs(true);
-                }
-
-                break;
-            }
-        }
-        return false;
-    }
-
-    public void switchTabs(boolean direction) {
-        if (direction) // true = flyt til venstre
-        {
-            if (mTabHost.getCurrentTab()==0)
-               mTabHost.setCurrentTab(mTabHost.getTabWidget().getTabCount() - 1);
-            else
-                mTabHost.setCurrentTab(mTabHost.getCurrentTab() - 1);
-        } else
-        // flyt til højre
-        {
-            if (mTabHost.getCurrentTab() != (mTabHost.getTabWidget().getTabCount() - 1))
-                mTabHost.setCurrentTab(mTabHost.getCurrentTab() + 1);
-            else
-                mTabHost.setCurrentTab(0);
-        }
-    }*/
 
 }
