@@ -14,7 +14,7 @@ import com.dtu.smmac.galgespil2.Fragment.List;
 import com.dtu.smmac.galgespil2.R;
 
 
-// *** Created by Mads Mortensen on 06-01-2016 ***
+// *** Created by Mads Mortensen on 06-01-2016 and Christoffer John Svendsen ***
 
 public class Main extends FragmentActivity {
 
@@ -48,6 +48,7 @@ public class Main extends FragmentActivity {
                 mTabHost.newTabSpec("tab4").setIndicator("Hjælp", null),
                 Help.class, null);
 
+        // Gør så alle tabs kan blive i focus når man trykker på dem
         for (int i = 0; i < 4; i++) {
             mTabHost.setCurrentTab(i);
             mTabHost.getCurrentTabView().setFocusableInTouchMode(true);
@@ -55,11 +56,12 @@ public class Main extends FragmentActivity {
 
         mTabHost.setCurrentTab(0);
 
+        // Ændre i horizontalview når der trykkes på ordliste og highscore, så de kommer mere i centrum
         mTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
                 if (mTabHost.getCurrentTab() == 1) {
-                    hsv.scrollTo(20,0);
+                    hsv.scrollTo(0,0);
                 }
                 if (mTabHost.getCurrentTab() == 2) {
                     hsv.scrollTo(120,0);
