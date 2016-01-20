@@ -40,8 +40,9 @@ public class Game extends Fragment implements View.OnClickListener {
     private int playerLevel = 0;
     private long combinedHighscore = 0;
 
-    // *** Soundeffects ***ø
-    private MediaPlayer applauseEffect, wrongLetterEffect, correctLetterEffect, gameOverEffect, usedLetterEffect, noLetterEffect, timesUpEffect;
+    // *** Soundeffects ***
+    private MediaPlayer applauseEffect, wrongLetterEffect, correctLetterEffect, gameOverEffect,
+                        usedLetterEffect, noLetterEffect, timesUpEffect, backgroundEffect;
 
 
     @Override
@@ -88,8 +89,12 @@ public class Game extends Fragment implements View.OnClickListener {
         usedLetterEffect = MediaPlayer.create(getActivity(), R.raw.usedletter);
         noLetterEffect = MediaPlayer.create(getActivity(), R.raw.noletter);
         timesUpEffect = MediaPlayer.create(getActivity(), R.raw.timesup);
-
+        if (backgroundEffect == null)
+        {
+            backgroundEffect = MediaPlayer.create(getActivity(), R.raw.background);
+        }
         // *** Start Check / Control of timer after return from other tab ***
+        // *** Check ---> background-music ***
         startUpCheck();
 
         return root;
@@ -98,12 +103,11 @@ public class Game extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v)
     {
-
-
         // *** Start game ***
         if (b1.getText().equals("GÆT"))
         {
             timerCheck();
+            backgroundCheck();
 
          // *** Error after miss-type (no typing) ***
             if (!et1.getText().toString().matches(""))
@@ -128,6 +132,7 @@ public class Game extends Fragment implements View.OnClickListener {
                             // *** Game over ***
                             if (Splash.game.erSpilletTabt())
                             {
+                                stopPlayBackground();
                                 gameOver();
                                 playGameOver();
                             }
@@ -143,6 +148,7 @@ public class Game extends Fragment implements View.OnClickListener {
                             // *** Game won ***
                             if (Splash.game.erSpilletVundet())
                             {
+                                stopPlayBackground();
                                 gameWon();
                                 playApplause();
                             }
@@ -178,14 +184,17 @@ public class Game extends Fragment implements View.OnClickListener {
         }
         else if (b1.getText().equals("NYT SPIL"))
         {
+            playBackground();
             newGame();
         }
         else if (b1.getText().equals("FORTSÆT"))
         {
+            playBackground();
             nextLevel();
         }
         else if (b1.getText().equals("GEM"))
         {
+            playBackground();
             saveScore();
             hideSoftKeyboard(getActivity());
         }
@@ -366,6 +375,8 @@ public class Game extends Fragment implements View.OnClickListener {
             timerStartet = false;
         }
 
+        backgroundCheck();
+
         tempHighscore = 100000;
         highscore = 0;
         playerLevel = 0;
@@ -378,6 +389,14 @@ public class Game extends Fragment implements View.OnClickListener {
         {
             countDownTimer.start();
             timerStartet = true;
+        }
+    }
+
+    public void backgroundCheck()
+    {
+        if (backgroundEffect.isPlaying() == false)
+        {
+            playBackground();
         }
     }
 
@@ -415,6 +434,18 @@ public class Game extends Fragment implements View.OnClickListener {
     public void playTimesUp()
     {
         timesUpEffect.start();
+    }
+
+    public void playBackground()
+    {
+        backgroundEffect.setLooping(true);
+        backgroundEffect.start();
+        backgroundEffect.setVolume(0.3f, 0.3f);
+    }
+
+    public void stopPlayBackground()
+    {
+        backgroundEffect.pause();
     }
 
     public void hideSoftKeyboard(Activity activity)
@@ -458,6 +489,7 @@ public class Game extends Fragment implements View.OnClickListener {
             tv5.setText("Tid: " + millisUntilFinished / 1000 + "   Point: " + tempHighscore);
             if (millisUntilFinished/1000 == 1)
             {
+                stopPlayBackground();
                 playTimesUp();
             }
         }
