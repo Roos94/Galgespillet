@@ -10,8 +10,8 @@ android {
         applicationId "com.dtu.smmac.galgespil2"
         minSdkVersion 18
         targetSdkVersion 21
-        versionCode 3
-        versionName "1.11"
+        versionCode 4
+        versionName "1.12"
     }
     buildTypes {
         release {

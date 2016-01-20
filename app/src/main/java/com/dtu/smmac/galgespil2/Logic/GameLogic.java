@@ -65,7 +65,6 @@ public class GameLogic {
   public GameLogic() {
     muligeOrd = new ArrayList<String>();
 
-    muligeOrd.add("bil");
     muligeOrd.add("computer");
     muligeOrd.add("programmering");
     muligeOrd.add("motorvej");
@@ -73,6 +72,27 @@ public class GameLogic {
     muligeOrd.add("gangsti");
     muligeOrd.add("skovsnegl");
     muligeOrd.add("solsort");
+    muligeOrd.add("android");
+    muligeOrd.add("produktet");
+    muligeOrd.add("galgespillet");
+    muligeOrd.add("almindelige");
+    muligeOrd.add("sammenkomst");
+    muligeOrd.add("paraplyrevolution");
+    muligeOrd.add("selfiestang");
+    muligeOrd.add("udkantsdanmark");
+    muligeOrd.add("solformørkelse");
+    muligeOrd.add("fodbold");
+    muligeOrd.add("sportsgren");
+    muligeOrd.add("håndbold");
+    muligeOrd.add("fredagsbar");
+    muligeOrd.add("fyraftensbajer");
+    muligeOrd.add("semikolon");
+    muligeOrd.add("projektleder");
+    muligeOrd.add("politikere");
+    muligeOrd.add("plastikchartek");
+    muligeOrd.add("dameblade");
+    muligeOrd.add("kattekillinger");
+    muligeOrd.add("vindueskarm");
     nulstil();
   }
 
